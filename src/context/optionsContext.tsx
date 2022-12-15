@@ -12,10 +12,14 @@ export interface StateProps {
 
 export const OptionsContext = createContext({} as StateProps)
 
+
+
 export const useOptions = () => useContext(OptionsContext);
 
+
+
 export const OptionsProvider = ({ children }: SearchTypes) => {
-  const [tempo, setTempo] = useState<number>(1)
+  const [tempo, setTempo] = useState<number>(25)
 
   return (
     <OptionsContext.Provider value={{ tempo, setTempo }}>{children}</OptionsContext.Provider>
