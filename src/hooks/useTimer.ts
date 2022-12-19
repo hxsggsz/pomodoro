@@ -1,11 +1,30 @@
 import { useState, useRef, useEffect } from "react";
 
 export const useTimer = (minutos: number) => {
-  const [seconds, setSeconds] = useState(0);
-  const [minutes, setMinutes] = useState<number | undefined>(minutos);
+  const getMinutes = () => {
+    let minutes = localStorage.getItem("minutes");
+
+    if (minutes) {
+      return JSON.parse(minutes);
+    }
+    return 0;
+  };
+
+  const getSeconds = () => {
+    let seconds = localStorage.getItem("seconds");
+
+    if (seconds) {
+      return JSON.parse(seconds);
+    }
+    return 0;
+  };
+  const [seconds, setSeconds] = useState<any>(getSeconds() || 0);
+  const [minutes, setMinutes] = useState<any | undefined>(
+    getMinutes() || minutos
+  );
   const [pause, setPause] = useState(true);
 
-  const intervalRef = useRef<number | undefined>();
+  let intervalRef = useRef<ReturnType<typeof setInterval>>();
   const stop = clearInterval(intervalRef.current);
   const alarm = new Audio("/87558731.mp3");
 
@@ -38,6 +57,8 @@ export const useTimer = (minutos: number) => {
         setMinutes(minutes - 1);
         setSeconds(59);
       }
+      localStorage.setItem("minutes", JSON.stringify(minutes));
+      localStorage.setItem("seconds", JSON.stringify(seconds));
     }, 1000);
 
     return () => clearInterval(intervalRef.current); //stop não funciona aqui
