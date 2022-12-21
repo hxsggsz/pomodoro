@@ -1,7 +1,8 @@
 import { ButtonHTMLAttributes, ReactNode } from "react"
 import { StyledBody, StyledContent, StyledIcon, StyledRoot, StyledTitle } from "."
+import { AnimatePresence } from "framer-motion"
 
-interface IModal {
+interface IModal { 
   children: ReactNode
 }
 
@@ -14,7 +15,9 @@ const ModalRoot = ({ children }: IModal) => (
 )
 
 const ModalBody = ({ children }: IModal) => (
-  <StyledBody>{children}</StyledBody>
+  <AnimatePresence>
+    <StyledBody initial={{ opacity: 0, y: -100 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -100 }}>{children}</StyledBody>
+  </AnimatePresence>
 )
 
 const ModalTitle = ({ children }: IModal) => (

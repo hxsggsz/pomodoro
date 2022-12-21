@@ -6,16 +6,21 @@ import { useTimerRelax } from "../../hooks/useTimerRelax"
 import { useState, FormEvent } from "react"
 import { StyledForm, StyledSelection, StyledOption, StyledButton } from "../modal"
 import { Modal } from "../modal/modal"
+import { StyledOptions, StyledOptionOne, StyledOptionTwo } from "../timer-estude"
+import { useColors } from "../../context/ColorModeContex"
 
 export const TimerRelaxe = () => {
   const { tempoRelaxe, setTempoRelaxe } = useOptions()
   const [modal, setModal] = useState(false)
+  const { allColorsTheme, setAllColorsTheme } = useColors()
   const { minutesRelax, secondsRelax, pauseRelax, handlePauseRelax, handleRestartRelax } = useTimerRelax(tempoRelaxe)
 
   function handleSubmitOptions(ev: FormEvent<HTMLFormElement>) {
     ev.preventDefault()
     handleRestartRelax()
     setModal(false)
+
+    allColorsTheme === 'GreyTheme' ? localStorage.setItem('currentTheme', 'GreyTheme') : localStorage.setItem('currentTheme', 'purpleTheme')
   }
 
   return (
@@ -59,6 +64,15 @@ export const TimerRelaxe = () => {
                     <StyledOption value="15">15 minutos</StyledOption>
                     <StyledOption value="20">20 minutos</StyledOption>
                   </StyledSelection>
+
+
+                  <p>Escolha uma cor</p>
+
+                  <StyledOptions>
+                    <StyledOptionOne onClick={() => setAllColorsTheme('purpleTheme')} />
+
+                    <StyledOptionTwo onClick={() => setAllColorsTheme('GreyTheme')} />
+                  </StyledOptions>
 
                   <StyledButton whileHover={{ opacity: 0.8, y: -2, }} whileTap={{ y: [4, -4, 4] }} transition={{ delay: 0.1, type: "spring" }} type='submit'>enviar</StyledButton>
 

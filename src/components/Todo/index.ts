@@ -13,6 +13,10 @@ export const StyledWrapperTodo = styled.section`
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   background: ${({ theme }) => theme.backgroundBase};
 
+  @media (max-width: 523px) {
+    padding: 10px 60px;
+  }
+
   p {
     font-size: 1.2rem;
   }
@@ -45,6 +49,7 @@ export const StyledWrapperTodo = styled.section`
   .button {
     cursor: pointer;
     padding: 5px;
+    white-space: nowrap;
     margin-left: 10px;
     max-width: 100%;
     font-size: 1.3rem;
@@ -59,25 +64,23 @@ export const StyledWrapperTodo = styled.section`
   ul {
     flex-direction: column;
     margin-top: 10%;
-    width: 35vw;
   }
 
   li {
-    gap: 10px;
     align-items: center;
     display: flex;
     justify-content: space-between;
     background: ${({ theme }) => theme.BackgroundLight};
     border: 1px solid #000;
     border-radius: 5px;
-    padding: 10px;
+    padding: 5px;
     margin: 2px;
   }
 
   span {
     color: ${({ theme }) => theme.contrast};
     font-size: 1.2rem;
-    margin-bottom: 15px;
+    margin: 15px 20px;
   }
 
   .deleteTodo {

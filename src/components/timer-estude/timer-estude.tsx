@@ -1,22 +1,34 @@
+import {
+  StyledOptionOne,
+  StyledOptionTwo,
+  StyledOptions,
+  StyledTimer,
+  StyledWrapButtons,
+  StyledWrapper
+} from "."
 import { GearSix, X } from "phosphor-react"
-import { StyledCounter, StyledTimer, StyledWrapButtons, StyledWrapper } from "."
 import { useOptions } from "../../context/optionsContext"
 import { useTimer } from "../../hooks/useTimer"
-import { AnimatePresence, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import { FormEvent, useState } from "react"
 import { Modal } from "../modal/modal"
 import { StyledButton, StyledForm, StyledOption, StyledSelection } from "../modal"
+import { useColors } from "../../context/ColorModeContex"
 
 export const TimerEstude = () => {
-  const { tempoEstude, setTempoEstude } = useOptions()
   const [modal, setModal] = useState(false)
+  const { tempoEstude, setTempoEstude } = useOptions()
+  const { allColorsTheme, setAllColorsTheme } = useColors()
   const { minutes, seconds, pause, handlePause, handleRestart } = useTimer(tempoEstude)
 
   function handleSubmitOptions(ev: FormEvent<HTMLFormElement>) {
     ev.preventDefault()
     handleRestart()
     setModal(false)
+
+    allColorsTheme === 'GreyTheme' ? localStorage.setItem('currentTheme', 'GreyTheme') : localStorage.setItem('currentTheme', 'purpleTheme')
   }
+
 
   return (
     <StyledWrapper>
@@ -59,7 +71,16 @@ export const TimerEstude = () => {
                     <StyledOption value="60">1 hora</StyledOption>
                   </StyledSelection>
 
-                  <StyledButton whileHover={{ opacity: 0.8, y: -2, }} whileTap={{ y: [4, -4, 4] }} transition={{ delay: 0.1, type: "spring" }} type='submit'>enviar</StyledButton>
+
+                  <p>Escolha uma cor</p>
+
+                  <StyledOptions>
+                    <StyledOptionOne whileHover={{ scale: 1.2, }} whileTap={{ scale: 0.9, y: [0, -4, 4, 0] }} onClick={() => setAllColorsTheme('purpleTheme')} />
+
+                    <StyledOptionTwo whileHover={{ scale: 1.2, }} whileTap={{ scale: 0.9, y: [0, -4, 4, 0] }} onClick={() => setAllColorsTheme('GreyTheme')} />
+                  </StyledOptions>
+
+                  <StyledButton whileHover={{ opacity: 0.8, y: -2, }} whileTap={{ y: [4, -4, 4] }} transition={{ delay: 0.1, type: "spring" }} value={'1'} type='submit'>enviar</StyledButton>
 
                 </StyledForm>
               </Modal.Content>

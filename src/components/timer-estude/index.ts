@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const StyledWrapper = styled.main`
@@ -54,4 +55,25 @@ export const StyledCounter = styled.div`
   border-radius: 10px;
   border: 2px solid #000;
   background: ${({ theme }) => theme.BackgroundLight};
+`;
+
+export const StyledOptions = styled.ul`
+  gap: 20px;
+`;
+
+export const StyledOptionOne = styled(motion.li)`
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  background: #9b1d20;
+`;
+export const StyledOptionTwo = styled(motion.li)`
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #000;
+  background: #4c5760;
 `;

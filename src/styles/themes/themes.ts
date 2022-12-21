@@ -1,22 +1,8 @@
-export const purpleTheme = {
+export const RedTheme = {
   backgroundBase: "#3d2b3d",
   BackgroundLight: "#9B1D20",
   contrast: "#635D5C",
-  LightColor: "#D0FFCE", 
-};
-
-export const EggplantTheme = {
-  backgroundBase: "#6C4B5E",
-  BackgroundLight: "#B3679B",
-  contrast: "#D7907B",
-  LightColor: "#ECC8AE",
-};
-
-export const BlueTheme = {
-  backgroundBase: "#304D6D",
-  BackgroundLight: "#545E75",
-  contrast: "#63ADF2",
-  LightColor: "#A7CCED",
+  LightColor: "#D0FFCE",
 };
 
 export const GreyTheme = {

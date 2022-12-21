@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 import { Validation } from "./validation";
 import { StyledWrapperTodo } from ".";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { X } from "phosphor-react";
 
 type Inputs = {
@@ -59,15 +59,18 @@ export const Todo = () => {
 
       {list.length > 0 ?
         <motion.button whileHover={{ opacity: 0.6, y: -2, }} whileTap={{ y: [4, -4, 4] }} transition={{ delay: 0.1, type: "spring" }} className="button" onClick={DeleteFull}>Apagar todos</motion.button> : <p>adicione a sua tarefa</p>}
+
       <ul>
 
-        {list.map((item, idx) => {
-          return (
-            <>
-              <li key={idx}><p>{item.ToDo}</p> <X className="deleteTodo" onClick={() => DeleteItem(idx)} size={20} /></li>
-            </>
-          );
-        })}
+        <AnimatePresence>
+          {list.map((item, idx) => {
+            return (
+              <>
+                <motion.li key={idx} initial={{ opacity: 0, x: -100 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 200 }} ><p>{item.ToDo}</p> <X className="deleteTodo" onClick={() => DeleteItem(idx)} size={20} /></motion.li>
+              </>
+            );
+          })}
+        </AnimatePresence>
       </ul>
     </StyledWrapperTodo>
   )

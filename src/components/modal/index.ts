@@ -6,7 +6,7 @@ export const StyledRoot = styled.div`
   top: 0;
   width: 100%;
   height: 100%;
-  position: absolute;
+  position: fixed;
   z-index: 999;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
@@ -15,9 +15,13 @@ export const StyledRoot = styled.div`
   align-items: center;
 `;
 
-export const StyledBody = styled.div`
+export const StyledBody = styled(motion.div)`
   background: ${({ theme }) => theme.LightColor};
   border-radius: 5px;
+  max-width: 50vw;
+  @media (max-width: 813px) {
+    max-width: 100vw;
+  }
 `;
 
 export const StyledContent = styled.div`
@@ -38,6 +42,7 @@ export const StyledIcon = styled.button`
   background: none;
   border: none;
   cursor: pointer;
+  margin-left: 20px;
   &:hover {
     color: ${({ theme }) => theme.BackgroundLight};
   }
@@ -76,6 +81,7 @@ export const StyledButton = styled(motion.button)`
   font-size: 1.2rem;
   padding: 10px;
   position: absolute;
+  cursor: pointer;
   top: 120%;
   left: 30%;
   background: ${({ theme }) => theme.BackgroundLight};

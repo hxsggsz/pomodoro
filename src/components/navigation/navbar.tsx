@@ -1,7 +1,6 @@
 import { StyledNavbar } from ".";
 import { motion } from "framer-motion";
 import { useOptions } from "../../context/optionsContext";
-import { useState } from "react";
 
 export function NavBar() {
   
