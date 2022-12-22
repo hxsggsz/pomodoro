@@ -1,6 +1,7 @@
 {
   "name": "pomodoro",
   "private": true,
+  "homepage": "https://hxsggsz.github.io/pomodoro",
   "version": "0.0.0",
   "type": "module",
   "resolutions": {
@@ -8,6 +9,8 @@
   },
   "scripts": {
     "dev": "vite",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "tsc && vite build",
     "preview": "vite preview",
     "test": "jest --watch"
@@ -17,6 +20,7 @@
     "@radix-ui/react-slot": "^1.0.1",
     "@types/styled-components": "^5.1.26",
     "framer-motion": "^7.10.2",
+    "gh-pages": "^4.0.0",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
