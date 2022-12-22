@@ -44,7 +44,7 @@ export const Todo = () => {
     <StyledWrapperTodo>
 
 
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form data-testid="form-add-todo" onSubmit={handleSubmit(onSubmit)}>
 
         <label htmlFor="ToDo">
           <p>Ensira a sua tarefa aqui</p>
@@ -62,11 +62,19 @@ export const Todo = () => {
 
       <ul>
 
-        <AnimatePresence>
+        <AnimatePresence onExitComplete={() => console.log("exit")}>
           {list.map((item, idx) => {
             return (
               <>
-                <motion.li key={idx} initial={{ opacity: 0, x: -100 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: 200 }} ><p>{item.ToDo}</p> <X className="deleteTodo" onClick={() => DeleteItem(idx)} size={20} /></motion.li>
+                <motion.li
+                  key={idx}
+                  initial={{ opacity: 0, y: -100 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -100 }}
+                  transition={{ duration: 0.3, ease: "backInOut" }}
+                  //adicionado para testes
+                  data-testid={item}
+                ><p>{item.ToDo}</p> <X className="deleteTodo" data-testid={`${item}-btn-remove`} onClick={() => DeleteItem(idx)} size={20} /></motion.li>
               </>
             );
           })}

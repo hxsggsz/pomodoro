@@ -9,7 +9,7 @@ import {
 import { GearSix, X } from "phosphor-react"
 import { useOptions } from "../../context/optionsContext"
 import { useTimer } from "../../hooks/useTimer"
-import { motion } from "framer-motion"
+import { AnimatePresence, motion } from "framer-motion"
 import { FormEvent, useState } from "react"
 import { Modal } from "../modal/modal"
 import { StyledButton, StyledForm, StyledOption, StyledSelection } from "../modal"
@@ -49,46 +49,48 @@ export const TimerEstude = () => {
 
         <motion.div whileHover={{ rotate: 90 }} whileTap={{ rotate: 360, }} transition={{ duration: 1, type: "spring" }}>
 
-          <GearSix onClick={() => setModal(!modal)} className="gear" size={50} />
+          <GearSix data-testid='gear-test' onClick={() => setModal(!modal)} className="gear" size={50} />
 
         </motion.div>
 
       </StyledTimer>
+      <AnimatePresence>
 
-      {
-        modal && (
-          <Modal.Root>
+        {
+          modal && (
+            <Modal.Root>
 
-            <Modal.Body>
-              <Modal.Title>Opções🧷<Modal.Icon onClick={() => setModal(false)} ><X size={25} /></Modal.Icon></Modal.Title>
+              <Modal.Body>
+                <Modal.Title>Opções🧷<Modal.Icon onClick={() => setModal(false)} ><X size={25} /></Modal.Icon></Modal.Title>
 
-              <Modal.Content>
-                <StyledForm onSubmit={handleSubmitOptions}>
-                  <label htmlFor="select">Selecione um tempo</label>
-                  <StyledSelection value={tempoEstude} onChange={(ev) => setTempoEstude(parseInt(ev.currentTarget.value))}>
-                    <StyledOption value="25">25 minutos</StyledOption>
-                    <StyledOption value="50">50 minutos</StyledOption>
-                    <StyledOption value="60">1 hora</StyledOption>
-                  </StyledSelection>
+                <Modal.Content>
+                  <StyledForm onSubmit={handleSubmitOptions}>
+                    <label htmlFor="select">Selecione um tempo</label>
+                    <StyledSelection value={tempoEstude} onChange={(ev) => setTempoEstude(parseInt(ev.currentTarget.value))}>
+                      <StyledOption value="25">25 minutos</StyledOption>
+                      <StyledOption value="50">50 minutos</StyledOption>
+                      <StyledOption value="60">1 hora</StyledOption>
+                    </StyledSelection>
 
 
-                  <p>Escolha uma cor</p>
+                    <p>Escolha uma cor</p>
 
-                  <StyledOptions>
-                    <StyledOptionOne whileHover={{ scale: 1.2, }} whileTap={{ scale: 0.9, y: [0, -4, 4, 0] }} onClick={() => setAllColorsTheme('purpleTheme')} />
+                    <StyledOptions>
+                      <StyledOptionOne whileHover={{ scale: 1.2, }} whileTap={{ scale: 0.9, y: [0, -4, 4, 0] }} onClick={() => setAllColorsTheme('purpleTheme')} />
 
-                    <StyledOptionTwo whileHover={{ scale: 1.2, }} whileTap={{ scale: 0.9, y: [0, -4, 4, 0] }} onClick={() => setAllColorsTheme('GreyTheme')} />
-                  </StyledOptions>
+                      <StyledOptionTwo whileHover={{ scale: 1.2, }} whileTap={{ scale: 0.9, y: [0, -4, 4, 0] }} onClick={() => setAllColorsTheme('GreyTheme')} />
+                    </StyledOptions>
 
-                  <StyledButton whileHover={{ opacity: 0.8, y: -2, }} whileTap={{ y: [4, -4, 4] }} transition={{ delay: 0.1, type: "spring" }} value={'1'} type='submit'>enviar</StyledButton>
+                    <StyledButton whileHover={{ opacity: 0.8, y: -2, }} whileTap={{ y: [4, -4, 4] }} transition={{ delay: 0.1, type: "spring" }} value={'1'} type='submit'>enviar</StyledButton>
 
-                </StyledForm>
-              </Modal.Content>
-            </Modal.Body>
+                  </StyledForm>
+                </Modal.Content>
+              </Modal.Body>
 
-          </Modal.Root>
-        )
-      }
+            </Modal.Root>
+          )
+        }
+      </AnimatePresence>
     </StyledWrapper>
 
   )
