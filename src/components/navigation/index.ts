@@ -9,7 +9,7 @@ export const StyledNavbar = styled.nav`
     cursor: pointer;
     list-style: none;
     border-radius: 30px;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.2);
     border: 5px solid ${({ theme }) => theme.backgroundBase};
     background-color: ${({ theme }) => theme.backgroundBase};
   }

@@ -11,11 +11,11 @@ export const Title = styled.h1`
 export const WrapperInfo = styled.div`
   .InfoButton {
     position: fixed;
-    bottom: 0;
-    right: 0;
-    padding: 15px 20px;
+    bottom: 7%;
+    right: 5%;
+    padding: 15px 22px;
+    border: none;
     cursor: pointer;
-    margin: 20px;
     font-size: 1.3rem;
     font-weight: semibold;
     border-radius: 50%;

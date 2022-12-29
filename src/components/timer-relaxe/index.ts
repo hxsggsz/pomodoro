@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import styled from "styled-components";
 
 export const StyledWrapper = styled.main`
@@ -10,10 +11,12 @@ export const StyledTimer = styled.div`
   align-items: center;
   border-radius: 30px;
   flex-direction: column;
-  border: 2px solid #000;
   justify-content: center;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.2);
   background: ${({ theme }) => theme.backgroundBase};
+  @media (max-width: 660px) {
+    max-width: 100%;
+  }
 
   .timer {
     color: ${({ theme }) => theme.LightColor};
@@ -41,9 +44,9 @@ export const StyledWrapButtons = styled.div`
     font-size: 1.3rem;
     font-weight: bold;
     border-radius: 7px;
-    border: 2px solid #000;
+    border: none;
     color: ${({ theme }) => theme.LightColor};
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 7px 7px 7px 1px rgba(0, 0, 0, 0.2);
     background: ${({ theme }) => theme.BackgroundLight};
   }
 `;
@@ -54,4 +57,25 @@ export const StyledCounter = styled.div`
   border-radius: 10px;
   border: 2px solid #000;
   background: ${({ theme }) => theme.BackgroundLight};
+`;
+
+export const StyledOptions = styled.ul`
+  gap: 20px;
+`;
+
+export const StyledOptionOne = styled(motion.li)`
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid #000;
+  background: #9b1d20;
+`;
+export const StyledOptionTwo = styled(motion.li)`
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid #000;
+  background: #4c5760;
 `;

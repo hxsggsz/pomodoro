@@ -11,10 +11,12 @@ export const StyledTimer = styled.div`
   align-items: center;
   border-radius: 30px;
   flex-direction: column;
-  border: 2px solid #000;
   justify-content: center;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.2);
   background: ${({ theme }) => theme.backgroundBase};
+  @media (max-width: 660px) {
+    max-width: 100%;
+  }
 
   .timer {
     color: ${({ theme }) => theme.LightColor};
@@ -42,9 +44,9 @@ export const StyledWrapButtons = styled.div`
     font-size: 1.3rem;
     font-weight: bold;
     border-radius: 7px;
-    border: 2px solid #000;
+    border: none;
     color: ${({ theme }) => theme.LightColor};
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 7px 7px 7px 1px rgba(0, 0, 0, 0.2);
     background: ${({ theme }) => theme.BackgroundLight};
   }
 `;

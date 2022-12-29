@@ -3,7 +3,7 @@ import { useForm, SubmitHandler } from "react-hook-form";
 import { Validation } from "./validation";
 import { StyledWrapperTodo } from ".";
 import { AnimatePresence, motion } from "framer-motion";
-import { X } from "phosphor-react";
+import { X, MagnifyingGlass } from "phosphor-react";
 
 type Inputs = {
   ToDo: string | number,
@@ -51,7 +51,7 @@ export const Todo = () => {
 
           <input type="text" placeholder='Ex: criar componente' {...register("ToDo")} />
 
-          <motion.button whileHover={{ opacity: 0.6, y: -2, }} whileTap={{ y: [4, -4, 4] }} transition={{ delay: 0.1, type: "spring" }} className="button" type="submit">Enviar</motion.button>
+          <motion.button whileHover={{ opacity: 0.6, y: -2, }} whileTap={{ y: [4, -4, 4] }} transition={{ delay: 0.1, type: "spring" }} className="button" type="submit"><MagnifyingGlass size={20} /></motion.button>
         </label>
         <span>{errors.ToDo?.message}</span>
 
@@ -68,9 +68,9 @@ export const Todo = () => {
               <>
                 <motion.li
                   key={idx}
-                  initial={{ opacity: 0, y: -100 }}
+                  initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -100 }}
+                  exit={{ opacity: 0, y: -10 }}
                   transition={{ duration: 0.3, ease: "backInOut" }}
                   //adicionado para testes
                   data-testid={item}
