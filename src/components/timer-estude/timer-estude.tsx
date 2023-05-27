@@ -24,8 +24,10 @@ export const TimerEstude = () => {
   const [modal, setModal] = useState(false)
   const { tempoEstude, setTempoEstude } = useOptions()
   const { allColorsTheme, setAllColorsTheme } = useColors()
-  const { minutes, seconds, pause, handlePause, handleRestart } =
-    useTimer(tempoEstude)
+  const { minutes, seconds, pause, handlePause, handleRestart } = useTimer(
+    'timer',
+    tempoEstude,
+  )
 
   function handleSubmitOptions(ev: FormEvent<HTMLFormElement>) {
     ev.preventDefault()
@@ -46,7 +48,7 @@ export const TimerEstude = () => {
           exit={{ y: -75 }}
           className="timer"
         >
-          {minutes && minutes < 10 ? `0${minutes}` : minutes} :{' '}
+          {minutes < 10 ? `0${minutes}` : minutes} :{' '}
           {seconds < 10 ? `0${seconds}` : seconds}
         </motion.p>
 

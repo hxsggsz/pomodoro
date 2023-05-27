@@ -5,13 +5,13 @@
 
 export default {
   clearMocks: true,
-  collectCoverage: true,
-  modulePaths: ["<rootDir>/src/"],
-  collectCoverageFrom: ["src/**/*.ts(x)"],
-  testEnvironment: "jest-environment-jsdom",
-  setupFilesAfterEnv: ["<rootDir>/.jest/setup.ts"],
-  moduleDirectories: ["node_modules", "<rootDir>/"],
-  transformIgnorePatterns: ["!node_modules/", "!.next/"],
+  collectCoverage: false,
+  modulePaths: ['<rootDir>/src/'],
+  collectCoverageFrom: ['src/**/*.ts(x)'],
+  testEnvironment: 'jest-environment-jsdom',
+  setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
+  moduleDirectories: ['node_modules', '<rootDir>/'],
+  transformIgnorePatterns: ['!node_modules/', '!.next/'],
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -38,7 +38,7 @@ export default {
   // ],
 
   // Indicates which provider should be used to instrument code for coverage
-  coverageProvider: "v8",
+  coverageProvider: 'v8',
 
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
@@ -128,7 +128,7 @@ export default {
   // restoreMocks: false,
 
   // The root directory that Jest should scan for tests and modules within
-  // rootDir: undefined, 
+  // rootDir: undefined,
 
   // A list of paths to directories that Jest should use to search for files in
   // roots: [
@@ -180,12 +180,12 @@ export default {
 
   // A map from regular expressions to paths to transformers
   transform: {
-    "^.+\\.(t|j)sx?$": [
-      "@swc/jest",
+    '^.+\\.(t|j)sx?$': [
+      '@swc/jest',
       {
         jsc: {
           parser: {
-            syntax: "typescript",
+            syntax: 'typescript',
             tsx: true,
             decorators: true,
           },
@@ -194,12 +194,12 @@ export default {
             legacyDecorator: true,
             decoratorMetadata: true,
             react: {
-              runtime: "automatic",
+              runtime: 'automatic',
             },
           },
         },
         module: {
-          type: "es6",
+          type: 'es6',
           noInterop: false,
         },
       },
@@ -223,4 +223,4 @@ export default {
 
   // Whether to use watchman for file crawling
   // watchman: true,
-};
+}

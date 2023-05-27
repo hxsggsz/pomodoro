@@ -1,32 +1,24 @@
-import { StyledNavbar } from ".";
-import { motion } from "framer-motion";
-import { useOptions } from "../../context/optionsContext";
+import { StyledNavbar } from '.'
+import { motion } from 'framer-motion'
+import { useOptions } from '../../context/optionsContext'
 
 export function NavBar() {
-  
+  const { activeIndex, setActiveIndex } = useOptions()
 
-  const { activeIndex, setActiveIndex } = useOptions();
-
-  const data = [
-    { label: "Estude" },
-    { label: "Relaxe" },
-  ];
+  const data = [{ label: 'Estude' }, { label: 'Relaxe' }]
 
   return (
     <>
-
       <StyledNavbar>
-
         <motion.ul>
           {data.map(({ label }, index) => {
-            const isActive = index === activeIndex;
+            const isActive = index === activeIndex
             return (
-
               <motion.li
                 key={index}
                 onClick={() => {
                   setActiveIndex(index)
-                  localStorage.setItem("active", JSON.stringify(index))
+                  localStorage.setItem('active', JSON.stringify(index))
                 }}
               >
                 <p>
@@ -36,12 +28,10 @@ export function NavBar() {
                   <span>{label}</span>
                 </p>
               </motion.li>
-            );
+            )
           })}
         </motion.ul>
-
       </StyledNavbar>
-
     </>
-  );
+  )
 }

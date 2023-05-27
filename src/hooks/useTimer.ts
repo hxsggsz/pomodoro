@@ -1,68 +1,49 @@
-import { useState, useRef, useEffect } from "react";
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useState, useRef, useEffect } from 'react'
+import { useLocalStorage } from './useLocalStorage'
 
-export const useTimer = (minutos: number) => {
-  const getMinutes = () => {
-    let minutes = localStorage.getItem("minutes");
+export const useTimer = (key: string, InitialMinutes: number) => {
+  const [timerStorage, setTimerStorage] = useLocalStorage(key, {
+    min: InitialMinutes,
+    sec: 0,
+  })
 
-    if (minutes) {
-      return JSON.parse(minutes);
-    }
-    return 0;
-  };
+  const [seconds, setSeconds] = useState(timerStorage.sec)
+  const [minutes, setMinutes] = useState(timerStorage.min)
+  const [pause, setPause] = useState(true)
 
-  const getSeconds = () => {
-    let seconds = localStorage.getItem("seconds");
-
-    if (seconds) {
-      return JSON.parse(seconds);
-    }
-    return 0;
-  };
-  const [seconds, setSeconds] = useState<any>(getSeconds() || 0);
-  const [minutes, setMinutes] = useState<any | undefined>(
-    getMinutes() || minutos
-  );
-  const [pause, setPause] = useState(true);
-
-  let intervalRef = useRef<ReturnType<typeof setInterval>>();
-  const stop = clearInterval(intervalRef.current);
-  const alarm = new Audio("/87558731.mp3");
+  const intervalRef = useRef<ReturnType<typeof setInterval>>()
+  const alarm = new Audio('/87558731.mp3')
 
   function handlePause() {
-    setPause(!pause);
+    setPause((prevState) => !prevState)
   }
 
   function handleRestart() {
-    setMinutes(minutos);
-    setSeconds(0);
+    setMinutes(InitialMinutes)
+    setSeconds(0)
   }
 
   useEffect(() => {
-    if (minutes == 0 && seconds == 0) {
-      alarm.play();
-      return () => stop;
-    }
-
-    if (pause) {
-      return () => stop;
-    }
-
-    intervalRef.current = setInterval(() => {
-      setSeconds(seconds - 1);
-
-      if (seconds == 0) {
-        if (!minutes) {
-          return () => stop;
+    if (!pause) {
+      intervalRef.current = setInterval(() => {
+        setSeconds(seconds - 1)
+        if (seconds === 0) {
+          setMinutes(minutes - 1)
+          setSeconds(59)
         }
-        setMinutes(minutes - 1);
-        setSeconds(59);
-      }
-      localStorage.setItem("minutes", JSON.stringify(minutes));
-      localStorage.setItem("seconds", JSON.stringify(seconds));
-    }, 1000);
+      }, 1000)
+      return () => clearInterval(intervalRef.current)
+    }
+  })
 
-    return () => clearInterval(intervalRef.current); //stop não funciona aqui
-  });
+  useEffect(() => {
+    setTimerStorage({ min: minutes, sec: seconds })
+    if (minutes === 0 && seconds === 0) {
+      alarm.play()
+      handlePause()
+    }
+  }, [minutes, seconds])
 
   return {
     minutes,
@@ -70,5 +51,5 @@ export const useTimer = (minutos: number) => {
     pause,
     handlePause,
     handleRestart,
-  };
-};
+  }
+}
