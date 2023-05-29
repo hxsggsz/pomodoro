@@ -4,43 +4,48 @@ import {
   StyledOptions,
   StyledTimer,
   StyledWrapButtons,
-  StyledWrapper,
-} from '.'
-import { AnimatePresence, motion } from 'framer-motion'
-import { GearSix, X } from 'phosphor-react'
-import { FormEvent, useState } from 'react'
-import { useColors } from '../../context/ColorModeContex'
-import { useOptions } from '../../context/optionsContext'
-import { useTimer } from '../../hooks/useTimer'
+} from ".";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  ClockCounterClockwise,
+  GearSix,
+  HandPalm,
+  Play,
+  X,
+} from "phosphor-react";
+import { FormEvent, useState } from "react";
+import { useColors } from "../../context/ColorModeContex";
+import { useOptions } from "../../context/optionsContext";
+import { useTimer } from "../../hooks/useTimer";
 import {
   StyledButton,
   StyledForm,
   StyledOption,
   StyledSelection,
-} from '../modal'
-import { Modal } from '../modal/modal'
+} from "../modal";
+import { Modal } from "../modal/modal";
 
 export const TimerEstude = () => {
-  const [modal, setModal] = useState(false)
-  const { tempoEstude, setTempoEstude } = useOptions()
-  const { allColorsTheme, setAllColorsTheme } = useColors()
+  const [modal, setModal] = useState(false);
+  const { tempoEstude, setTempoEstude } = useOptions();
+  const { allColorsTheme, setAllColorsTheme } = useColors();
   const { minutes, seconds, pause, handlePause, handleRestart } = useTimer(
-    'timer',
-    tempoEstude,
-  )
+    "timer",
+    tempoEstude
+  );
 
   function handleSubmitOptions(ev: FormEvent<HTMLFormElement>) {
-    ev.preventDefault()
-    handleRestart()
-    setModal(false)
+    ev.preventDefault();
+    handleRestart();
+    setModal(false);
 
-    allColorsTheme === 'GreyTheme'
-      ? localStorage.setItem('currentTheme', 'GreyTheme')
-      : localStorage.setItem('currentTheme', 'purpleTheme')
+    allColorsTheme === "GreyTheme"
+      ? localStorage.setItem("currentTheme", "GreyTheme")
+      : localStorage.setItem("currentTheme", "purpleTheme");
   }
 
   return (
-    <StyledWrapper>
+    <>
       <StyledTimer>
         <motion.p
           initial={{ y: -10 }}
@@ -48,36 +53,41 @@ export const TimerEstude = () => {
           exit={{ y: -75 }}
           className="timer"
         >
-          {minutes < 10 ? `0${minutes}` : minutes} :{' '}
+          {minutes < 10 ? `0${minutes}` : minutes} :{" "}
           {seconds < 10 ? `0${seconds}` : seconds}
         </motion.p>
 
         <StyledWrapButtons>
           <motion.button
-            whileHover={{ opacity: 0.6, y: -2 }}
-            whileTap={{ y: [4, -4, 4] }}
-            transition={{ delay: 0.1, type: 'spring' }}
             className="button"
             onClick={handlePause}
           >
-            {pause ? 'Começar' : 'Pausar'}
+            {pause ? (
+              <>
+                <Play size={24} weight="bold" />
+                'Start'
+              </>
+            ) : (
+              <>
+                <HandPalm size={24} weight="bold" />
+                'Stop'
+              </>
+            )}
           </motion.button>
 
           <motion.button
-            whileHover={{ opacity: 0.6, y: -2 }}
-            whileTap={{ y: [4, -4, 4] }}
-            transition={{ delay: 0.1, type: 'spring' }}
             className="button"
             onClick={handleRestart}
           >
-            Reiniciar
+            <ClockCounterClockwise size={24} weight="bold" />
+            Restart
           </motion.button>
         </StyledWrapButtons>
 
         <motion.div
           whileHover={{ rotate: 90 }}
           whileTap={{ rotate: 360 }}
-          transition={{ duration: 1, type: 'spring' }}
+          transition={{ duration: 1, type: "spring" }}
         >
           <GearSix
             data-testid="gear-test"
@@ -118,21 +128,21 @@ export const TimerEstude = () => {
                     <StyledOptionOne
                       whileHover={{ scale: 1.2 }}
                       whileTap={{ scale: 0.9, y: [0, -4, 4, 0] }}
-                      onClick={() => setAllColorsTheme('purpleTheme')}
+                      onClick={() => setAllColorsTheme("purpleTheme")}
                     />
 
                     <StyledOptionTwo
                       whileHover={{ scale: 1.2 }}
                       whileTap={{ scale: 0.9, y: [0, -4, 4, 0] }}
-                      onClick={() => setAllColorsTheme('GreyTheme')}
+                      onClick={() => setAllColorsTheme("GreyTheme")}
                     />
                   </StyledOptions>
 
                   <StyledButton
                     whileHover={{ opacity: 0.8, y: -2 }}
                     whileTap={{ y: [4, -4, 4] }}
-                    transition={{ delay: 0.1, type: 'spring' }}
-                    value={'1'}
+                    transition={{ delay: 0.1, type: "spring" }}
+                    value={"1"}
                     type="submit"
                   >
                     enviar
@@ -143,6 +153,6 @@ export const TimerEstude = () => {
           </Modal.Root>
         )}
       </AnimatePresence>
-    </StyledWrapper>
-  )
-}
+    </>
+  );
+};

@@ -1,26 +1,14 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const StyledWrapper = styled.main`
-  margin: 8% 0;
-`;
 export const StyledTimer = styled.div`
   display: flex;
-  cursor: default;
-  padding: 10px 100px;
   align-items: center;
-  border-radius: 30px;
   flex-direction: column;
-  justify-content: center;
-  box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.2);
-  background: ${({ theme }) => theme.backgroundBase};
-  @media (max-width: 660px) {
-    max-width: 100%;
-  }
 
   .timer {
     color: ${({ theme }) => theme.LightColor};
-    font-size: 5rem;
+    font-size: 6rem;
   }
 
   .gear {
@@ -37,22 +25,33 @@ export const StyledWrapButtons = styled.div`
   justify-content: center;
 
   .button {
-    width: 120px;
-    height: 40px;
+    padding: 10px 14px;
     cursor: pointer;
     max-width: 100%;
     font-size: 1.3rem;
     font-weight: bold;
-    border-radius: 7px;
-    border: none;
+    border-radius: 12px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid ${({ theme }) => theme.LightColor};
+    border-bottom: 4px solid ${({ theme }) => theme.LightColor};
     color: ${({ theme }) => theme.LightColor};
-    box-shadow: 7px 7px 7px 1px rgba(0, 0, 0, 0.2);
     background: ${({ theme }) => theme.BackgroundLight};
+    
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &:active {
+      border-bottom: 2px solid ${({ theme }) => theme.LightColor};
+      margin-top: 2px;
+    }
   }
 `;
 
 export const StyledCounter = styled.div`
-  padding: 3px 5px;
   overflow: hidden;
   border-radius: 10px;
   border: 2px solid #000;

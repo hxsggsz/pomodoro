@@ -20,14 +20,13 @@ export const GlobalStyle = createGlobalStyle`
     color: ${({ theme }) => theme.LightColor};
 
     &::-webkit-scrollbar {
-        width: 15px;
-        border: 1px solid black;
-        background: ${({ theme }) => theme.LightColor};
-      }
-      
+      background: inherit;
+      width: 6px;
+    }
+    
     &::-webkit-scrollbar-thumb {
-      background: ${({ theme }) => theme.backgroundBase};
-      border-radius: 2px;
+      border-radius: 12px;
+      background: ${({ theme }) => theme.LightColor};
     }
   } 
 

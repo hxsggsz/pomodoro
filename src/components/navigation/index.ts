@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledNavbar = styled.nav`
   display: flex;
-  justify-content: center;
+  justify-content: center; 
   margin-top: 10px;
   ul {
     gap: 1rem;
@@ -21,7 +21,6 @@ export const StyledNavbar = styled.nav`
     font-weight: bold;
     font-size: 1.3rem;
     position: relative;
-    border-radius: 40px;
     text-decoration: none;
     display: inline-block;
     color: ${({ theme }) => theme.LightColor};
@@ -30,8 +29,8 @@ export const StyledNavbar = styled.nav`
   .shadow {
     inset: 0;
     z-index: -1;
-    border-radius: 30px;
     position: absolute;
+    border-radius: 30px;
     background: ${({ theme }) => theme.BackgroundLight};
   }
 `;

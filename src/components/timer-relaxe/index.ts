@@ -6,17 +6,8 @@ export const StyledWrapper = styled.main`
 `;
 export const StyledTimer = styled.div`
   display: flex;
-  cursor: default;
-  padding: 10px 100px;
   align-items: center;
-  border-radius: 30px;
   flex-direction: column;
-  justify-content: center;
-  box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.2);
-  background: ${({ theme }) => theme.backgroundBase};
-  @media (max-width: 660px) {
-    max-width: 100%;
-  }
 
   .timer {
     color: ${({ theme }) => theme.LightColor};
