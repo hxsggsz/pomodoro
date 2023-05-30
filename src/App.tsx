@@ -7,49 +7,39 @@ import { Todo } from "./components/Todo/todo";
 import { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { ColorModeContext } from "./context/ColorModeContex";
-import { GlobalStyle } from "./styles/global";
 import { RedTheme, GreyTheme } from "./styles/themes/themes";
-import { motion } from "framer-motion";
+import { TimerNav } from "./components/timer-nav/timer-nav";
+import { GlobalStyle } from "./styles/global";
+import { Settings } from "./components/settings/settings";
 
 export default function App() {
-  const { activeIndex } = useOptions();
-  const [activeOption, setActiveOption] = useState(0);
+  const { activeTimer, activeIndex } = useOptions();
   const handleTheme = () => localStorage.getItem("currentTheme");
   const [allColorsTheme, setAllColorsTheme] = useState(
     handleTheme() || "GreyTheme"
   );
-  const data = ["Pomodoro", "Break", "Config"];
+
   return (
     <>
-      <ColorModeContext.Provider value={{ allColorsTheme, setAllColorsTheme }}>
-        <ThemeProvider
-          theme={allColorsTheme === "GreyTheme" ? GreyTheme : RedTheme}
-        >
-          <GlobalStyle />
-          <style.Title>Pomodoro</style.Title>
+      <style.Title>Pomodoro</style.Title>
 
-          <NavBar />
-          <style.MainCard>
-            <style.TimerNav>
-                {data.map((option, index) => (
-                 
-                    <span className="wrapper" key={index}
-                    onClick={() => {
-                      setActiveOption(index);
-                      // localStorage.setItem("active", JSON.stringify(index));
-                    }}>
-                      {index === activeOption && <style.TimerEffect layoutId="background" />}
+      <NavBar />
+      {activeIndex === 0 ? (
+        <style.MainCard>
+          <TimerNav />
 
-                      <style.TimerOption>{option}</style.TimerOption>
-                    </span>
-                ))}
-            </style.TimerNav>
-            {activeIndex === 0 ? <TimerEstude /> : <TimerRelaxe />}
-          </style.MainCard>
-
-          {/* <Todo /> */}
-        </ThemeProvider>
-      </ColorModeContext.Provider>
+          {activeTimer === 0 ? (
+            <TimerEstude />
+          ) : activeTimer === 1 ? (
+            <TimerRelaxe />
+          ) : (
+            <Settings />
+          )}
+        </style.MainCard>
+      ) : (
+        <Todo />
+      )}
+      <GlobalStyle />
     </>
   );
 }

@@ -1,9 +1,6 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const StyledWrapper = styled.main`
-  margin: 8% 0;
-`;
 export const StyledTimer = styled.div`
   display: flex;
   align-items: center;
@@ -11,7 +8,7 @@ export const StyledTimer = styled.div`
 
   .timer {
     color: ${({ theme }) => theme.LightColor};
-    font-size: 5rem;
+    font-size: 6rem;
   }
 
   .gear {

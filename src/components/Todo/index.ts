@@ -5,15 +5,16 @@ export const StyledWrapperTodo = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px 100px;
-  margin-top: 5%;
+  padding: 10px 120px;
+  margin-top: 20px;
   margin-bottom: 25%;
   border-radius: 30px;
   box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.2);
   background: ${({ theme }) => theme.backgroundBase};
+  max-width: 520px;
 
-  @media (max-width: 523px) {
-    padding: 10px 60px;
+  @media (max-width: 590px) {
+    max-width: 95vw;
   }
 
   p {
@@ -22,64 +23,47 @@ export const StyledWrapperTodo = styled.section`
 
   form {
     display: flex;
-    flex-direction: column;
-  }
-
-  label {
-    margin-top: 20px;
-    font-size: 1.5rem;
+    gap: 8px;
+    white-space: nowrap;
   }
 
   input[type="text"] {
     background: ${({ theme }) => theme.LightColor};
-    padding: 5px;
+    padding: 0 5px;
     color: ${({ theme }) => theme.BackgroundLight};
     outline: none;
-    font-size: 1.1rem;
+    font-size: 1.5rem;
     font-weight: semibold;
     border-radius: 5px;
     border: 2px solid ${({ theme }) => theme.BackgroundLight};
-  }
 
-  input[type="text"]::placeholder {
-    color: ${({ theme }) => theme.BackgroundLight};
-  }
-
-  .button {
-    cursor: pointer;
-    padding: 5px 8px;
-    white-space: nowrap;
-    margin-left: 10px;
-    max-width: 100%;
-    font-size: 1.3rem;
-    font-weight: bold;
-    border: none;
-    border-radius: 7px;
-    color: ${({ theme }) => theme.LightColor};
-    box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.2);
-    background: ${({ theme }) => theme.BackgroundLight};
+    &::placeholder {
+      font-weight: 700;
+    }
   }
 
   ul {
     flex-direction: column;
     margin-top: 10%;
+    gap: 8px;
   }
 
   li {
     align-items: center;
     display: flex;
     justify-content: space-between;
-    font-size: 1.1rem;
+    font-size: 24px;
     background: ${({ theme }) => theme.BackgroundLight};
-    border-radius: 5px;
-    padding: 5px;
-    margin: 2px;
+    border-radius: 6px;
+    padding: 12px;
+    gap: 8px;
   }
 
   span {
     color: ${({ theme }) => theme.contrast};
     font-size: 1.2rem;
     margin: 15px 20px;
+    width: 100%;
   }
 
   .deleteTodo {

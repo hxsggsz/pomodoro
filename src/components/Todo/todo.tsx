@@ -1,7 +1,8 @@
-import { StyledWrapperTodo } from '.'
-import { AnimatePresence, motion } from 'framer-motion'
-import { X, MagnifyingGlass } from 'phosphor-react'
-import { useTodo } from '../../hooks/useTodo'
+import { StyledWrapperTodo } from ".";
+import { AnimatePresence, motion } from "framer-motion";
+import { X } from "phosphor-react";
+import { useTodo } from "../../hooks/useTodo";
+import { Button } from "../button/button";
 
 export const Todo = () => {
   const {
@@ -12,74 +13,50 @@ export const Todo = () => {
     input,
     todo,
     HandleChange,
-  } = useTodo()
+  } = useTodo();
 
   return (
     <StyledWrapperTodo>
       <form data-testid="form-add-todo" onSubmit={HandleSubmit}>
-        <label htmlFor="ToDo">
-          <p>Ensira a sua tarefa aqui</p>
+        <input
+          type="text"
+          value={input}
+          onChange={HandleChange}
+          placeholder="Your todo here"
+        />
 
-          <input
-            type="text"
-            value={input}
-            placeholder="Ex: criar componente"
-            onChange={HandleChange}
-          />
-
-          <motion.button
-            whileHover={{ opacity: 0.6, y: -2 }}
-            whileTap={{ y: [4, -4, 4] }}
-            transition={{ delay: 0.1, type: 'spring' }}
-            className="button"
-            type="submit"
-          >
-            <MagnifyingGlass size={20} />
-          </motion.button>
-        </label>
-        <span>{error}</span>
+        <Button type="submit">Submit</Button>
       </form>
+      <span>{error}</span>
 
-      {todo.length > 0 ? (
-        <motion.button
-          whileHover={{ opacity: 0.6, y: -2 }}
-          whileTap={{ y: [4, -4, 4] }}
-          transition={{ delay: 0.1, type: 'spring' }}
-          className="button"
-          onClick={DeleteFull}
-        >
-          Apagar todos
-        </motion.button>
-      ) : (
-        <p>adicione a sua tarefa</p>
-      )}
+      {todo.length === 0 && <p>adicione a sua tarefa</p>}
 
       <ul>
         <AnimatePresence>
           {todo.map(
             (item, idx) =>
-              item !== '' && (
+              item !== "" && (
                 <motion.li
                   key={idx}
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.3, ease: 'backInOut' }}
+                  transition={{ duration: 0.3, ease: "backInOut" }}
                   // adicionado para testes
                   data-testid={item}
                 >
-                  <p>{item}</p>{' '}
+                  {item}{" "}
                   <X
                     className="deleteTodo"
                     data-testid={`${todo}-btn-remove`}
                     onClick={() => DeleteItem(idx)}
-                    size={20}
+                    size={24}
                   />
                 </motion.li>
-              ),
+              )
           )}
         </AnimatePresence>
       </ul>
     </StyledWrapperTodo>
-  )
-}
+  );
+};

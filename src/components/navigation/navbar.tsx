@@ -5,25 +5,22 @@ import { useOptions } from '../../context/optionsContext'
 export function NavBar() {
   const { activeIndex, setActiveIndex } = useOptions()
 
-  const data = [{ label: 'Estude' }, { label: 'Relaxe' }]
-
+  const data = ['Timer', 'Todo']
+ 
   return (
-    <>
+    <> 
       <StyledNavbar>
         <motion.ul>
-          {data.map(({ label }, index) => {
+          {data.map((label, index) => {
             const isActive = index === activeIndex
             return (
               <motion.li
                 key={index}
-                onClick={() => {
-                  setActiveIndex(index)
-                  localStorage.setItem('active', JSON.stringify(index))
-                }}
+                onClick={() => setActiveIndex(index)}
               >
                 <p>
                   {isActive ? (
-                    <motion.span layoutId="shadow" className="shadow" />
+                    <motion.span layoutId="wdadwadawda" className="shadow" />
                   ) : null}
                   <span>{label}</span>
                 </p>

@@ -35,4 +35,10 @@ export const GlobalStyle = createGlobalStyle`
       text-decoration: none;
       display: flex;
    }
+
+  h2, label {
+    color: ${({ theme }) => theme.LightColor};
+    font-size: min(2.15rem, 5vw);
+    font-weight: 700;
+  }
 `;
