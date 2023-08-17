@@ -16,15 +16,11 @@ export const TimerRelaxe = () => {
 
   return (
     <StyledTimer>
-      <motion.p
-        initial={{ y: -10 }}
-        animate={{ y: 0 }}
-        exit={{ y: -75 }}
-        className="timer"
+      <p className="timer"
       >
         {minutes < 10 ? "0" + minutes : minutes} :{" "}
         {seconds < 10 ? "0" + seconds : seconds}
-      </motion.p>
+      </p>
 
       <StyledWrapButtons>
         <Button onClick={handlePause}>

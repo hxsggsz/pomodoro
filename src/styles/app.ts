@@ -7,9 +7,8 @@ export const Title = styled.h1`
 `;
 
 export const MainCard = styled.main`
-  display: flex;
   margin-top: 20px;
-  padding: 14px 42px 14px 8px;
+  padding: 20px;
   border-radius: 30px;
   box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.2);
   background: ${({ theme }) => theme.backgroundBase};

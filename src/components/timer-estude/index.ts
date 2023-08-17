@@ -19,17 +19,15 @@ export const StyledTimer = styled.div`
 `;
 
 export const StyledWrapButtons = styled.div`
-  gap: 13px;
+  gap: 1.3rem;
   display: flex;
-  margin-top: 20px;
+  margin-top: 2rem;
   justify-content: center;
-
-  
 `;
 
 export const StyledCounter = styled.div`
   overflow: hidden;
-  border-radius: 10px;
+  border-radius: 10%;
   border: 2px solid #000;
   background: ${({ theme }) => theme.BackgroundLight};
 `;

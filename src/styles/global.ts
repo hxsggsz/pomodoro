@@ -12,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     display: flex;
     font-family: Ubuntu Condensed;
+    font-size: 62.5%;
     flex-direction: column;
     justify-content: center;
     align-items: center;

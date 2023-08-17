@@ -1,4 +1,4 @@
-import { StyledNavbar } from '.'
+import * as style from '.'
 import { motion } from 'framer-motion'
 import { useOptions } from '../../context/optionsContext'
 
@@ -9,8 +9,8 @@ export function NavBar() {
  
   return (
     <> 
-      <StyledNavbar>
-        <motion.ul>
+      <style.Navbar>
+        <style.List>
           {data.map((label, index) => {
             const isActive = index === activeIndex
             return (
@@ -18,17 +18,17 @@ export function NavBar() {
                 key={index}
                 onClick={() => setActiveIndex(index)}
               >
-                <p>
-                  {isActive ? (
-                    <motion.span layoutId="wdadwadawda" className="shadow" />
-                  ) : null}
+                <style.Text>
+                  {isActive && (
+                    <style.Background layoutId="horizontal" />
+                  )}
                   <span>{label}</span>
-                </p>
+                </style.Text>
               </motion.li>
             )
           })}
-        </motion.ul>
-      </StyledNavbar>
+        </style.List>
+      </style.Navbar>
     </>
   )
 }
