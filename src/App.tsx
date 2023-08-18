@@ -8,6 +8,7 @@ import { TimerNav } from "./components/timer-nav/timer-nav";
 import { GlobalStyle } from "./styles/global";
 import { Settings } from "./components/settings/settings";
 import { AnimatePresence } from "framer-motion";
+import { TodoProvider } from "./context/todoContext";
 
 export default function App() {
   const { activeTimer, activeIndex } = useOptions();

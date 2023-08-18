@@ -5,71 +5,55 @@ export const StyledWrapperTodo = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px 120px;
+  padding: 2rem;
   margin-top: 20px;
-  margin-bottom: 25%;
   border-radius: 30px;
   box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.2);
   background: ${({ theme }) => theme.backgroundBase};
-  max-width: 520px;
 
   @media (max-width: 590px) {
     max-width: 95vw;
   }
+`;
 
-  p {
-    font-size: 1.2rem;
+export const Form = styled.form`
+  display: flex;
+  width: 100%;
+  gap: 8px;
+`;
+
+export const Input = styled.input`
+  background: ${({ theme }) => theme.BackgroundLight};
+  padding: 0 0.4rem;
+  color: ${({ theme }) => theme.BackgroundLight};
+  outline: none;
+  font-size: 1.5rem;
+  width: 100%;
+  font-weight: 600;
+  border-radius: 1rem;
+  border: 0.2rem solid ${({ theme }) => theme.BackgroundLight};
+  border-bottom: 0.4rem solid ${({ theme }) => theme.BackgroundLight};
+
+  &::placeholder {
+    font-weight: 700;
   }
 
-  form {
-    display: flex;
-    gap: 8px;
-    white-space: nowrap;
-  }
-
-  input[type="text"] {
+  &:focus {
     background: ${({ theme }) => theme.LightColor};
-    padding: 0 5px;
-    color: ${({ theme }) => theme.BackgroundLight};
-    outline: none;
-    font-size: 1.5rem;
-    font-weight: semibold;
-    border-radius: 5px;
-    border: 2px solid ${({ theme }) => theme.BackgroundLight};
-
-    &::placeholder {
-      font-weight: 700;
-    }
   }
+`;
 
-  ul {
-    flex-direction: column;
-    margin-top: 10%;
-    gap: 8px;
-  }
+export const List = styled.ul`
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+`;
 
-  li {
-    align-items: center;
-    display: flex;
-    justify-content: space-between;
-    font-size: 24px;
-    background: ${({ theme }) => theme.BackgroundLight};
-    border-radius: 6px;
-    padding: 12px;
-    gap: 8px;
-  }
-
-  span {
-    color: ${({ theme }) => theme.contrast};
-    font-size: 1.2rem;
-    margin: 15px 20px;
-    width: 100%;
-  }
-
-  .deleteTodo {
-    cursor: pointer;
-    &:hover {
-      color: ${({ theme }) => theme.contrast};
-    }
-  }
+export const Error = styled.span`
+  color: #ff1744;
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 15px 20px;
+  width: 100%;
 `;

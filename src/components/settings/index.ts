@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const Form = styled.form`
+export const Form = styled.article`
   gap: 1rem;
+  margin-top: 0.8rem;
   color: ${({ theme }) => theme.BackgroundLight};
   flex-direction: column;
   display: flex;
-  position: relative;
+  align-items: center;
+  justify-content: center;
 `;
 
 export const Selection = styled.select`
@@ -25,29 +27,20 @@ export const Selection = styled.select`
   }
 `;
 
-export const Option = styled.option`
-  cursor: pointer;
-  border-radius: 5rem;
-  background-color: ${({ theme }) => theme.LightColor};
-  color: ${({ theme }) => theme.BackgroundLight};
-`;
-
 export const Options = styled.ul`
-  gap: 2rem;
+  gap: 1.2rem;
 `;
 
 export const OptionOne = styled(motion.li)`
   cursor: pointer;
-  width: 30px;
-  height: 30px;
+  padding: 1.2rem;
   border-radius: 50%;
   border: 2px solid #000;
   background: #9b1d20;
 `;
 
 export const OptionTwo = styled(motion.li)`
-  width: 30px;
-  height: 30px;
+  padding: 1.2rem;
   cursor: pointer;
   border-radius: 50%;
   border: 2px solid #000;
@@ -55,8 +48,7 @@ export const OptionTwo = styled(motion.li)`
 `;
 
 export const OptionThree = styled(motion.li)`
-  width: 30px;
-  height: 30px;
+  padding: 1.2rem;
   cursor: pointer;
   border-radius: 50%;
   border: 2px solid #000;
@@ -64,8 +56,7 @@ export const OptionThree = styled(motion.li)`
 `;
 
 export const OptionFour = styled(motion.li)`
-  width: 30px;
-  height: 30px;
+  padding: 1.2rem;
   cursor: pointer;
   border-radius: 50%;
   border: 2px solid #000;

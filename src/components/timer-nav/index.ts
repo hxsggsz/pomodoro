@@ -9,13 +9,12 @@ export const TimerOption = styled.p`
   width: 100%;
   font-weight: bold;
   user-select: none;
-  font-size: min(3rem, 5vw);
+  font-size: min(2.8rem, 5vw);
   color: ${({ theme }) => theme.LightColor};
   position: relative;
   cursor: pointer;
   z-index: 99;
   display: inline-block;
-  padding: 6px;
 `;
 
 export const Text = styled(motion.span)`

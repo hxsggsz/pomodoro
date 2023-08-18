@@ -1,62 +1,32 @@
-import { StyledWrapperTodo } from ".";
-import { AnimatePresence, motion } from "framer-motion";
-import { X } from "phosphor-react";
-import { useTodo } from "../../hooks/useTodo";
+import * as style from ".";
 import { Button } from "../button/button";
+import { Items } from "../items/items";
+import { useTodo } from "../../context/todoContext";
 
 export const Todo = () => {
-  const {
-    DeleteFull,
-    DeleteItem,
-    HandleSubmit,
-    error,
-    input,
-    todo,
-    HandleChange,
-  } = useTodo();
-
+  const todo = useTodo();
   return (
-    <StyledWrapperTodo>
-      <form data-testid="form-add-todo" onSubmit={HandleSubmit}>
-        <input
+    <style.StyledWrapperTodo>
+      <style.Form data-testid="form-add-todo" onSubmit={todo.handleSubmit}>
+        <style.Input
           type="text"
-          value={input}
-          onChange={HandleChange}
+          value={todo.input}
+          onChange={todo.handleChange}
           placeholder="Your todo here"
         />
 
         <Button type="submit">Submit</Button>
-      </form>
-      <span>{error}</span>
+      </style.Form>
 
-      {todo.length === 0 && <p>adicione a sua tarefa</p>}
+      <style.Error>{todo.error}</style.Error>
 
-      <ul>
-        <AnimatePresence>
-          {todo.map(
-            (item, idx) =>
-              item !== "" && (
-                <motion.li
-                  key={idx}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -10 }}
-                  transition={{ duration: 0.3, ease: "backInOut" }}
-                  // adicionado para testes
-                  data-testid={item}
-                >
-                  {item}{" "}
-                  <X
-                    className="deleteTodo"
-                    data-testid={`${todo}-btn-remove`}
-                    onClick={() => DeleteItem(idx)}
-                    size={24}
-                  />
-                </motion.li>
-              )
-          )}
-        </AnimatePresence>
-      </ul>
-    </StyledWrapperTodo>
+      {todo.todo.length === 0 && <p>adicione a sua tarefa</p>}
+
+      <style.List>
+      {todo.todo.map((item, idx) => (
+        <Items key={idx} item={item} deleteItem={todo.deleteItem} updateItem={todo.updateItem} />
+      ))}
+      </style.List>
+    </style.StyledWrapperTodo>
   );
 };
