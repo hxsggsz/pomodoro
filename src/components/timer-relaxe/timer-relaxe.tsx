@@ -4,7 +4,6 @@ import {
   Play,
 } from "phosphor-react";
 import { StyledTimer, StyledWrapButtons } from ".";
-import { motion } from "framer-motion";
 import { useTimer } from "../../hooks/useTimer";
 import { Button } from "../button/button";
 
@@ -26,7 +25,7 @@ export const TimerRelaxe = () => {
         <Button onClick={handlePause}>
           {pause ? (
             <>
-              <Play size={24} weight="bold" />
+              <Play size={24} weight="fill" />
               Start
             </>
           ) : (

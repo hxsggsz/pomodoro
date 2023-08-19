@@ -42,4 +42,9 @@ export const GlobalStyle = createGlobalStyle`
     font-size: min(2.15rem, 5vw);
     font-weight: 700;
   }
+  
+  a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.LightColor};    
+  }
 `;

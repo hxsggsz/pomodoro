@@ -17,6 +17,7 @@ export const StyledWrapperTodo = styled.section`
 
   p {
     font-size: 1.2rem;
+    padding-top: 0.6rem;
   }
 `;
 
@@ -30,7 +31,6 @@ export const Form = styled.form`
   display: flex;
   width: 100%;
   gap: 8px;
-  margin-bottom: 1rem;
 `;
 
 export const Input = styled.input`
@@ -62,12 +62,14 @@ export const List = styled.ul`
   flex-direction: column;
   gap: 8px;
   width: 100%;
+  margin-top: 0.6rem;
+  overflow-y: auto;
 `;
 
 export const Error = styled.span`
   color: #ff1744;
   text-align: center;
   font-size: 1.2rem;
-  margin: 15px 20px;
+  margin: 0.4rem;
   width: 100%;
 `;

@@ -1,20 +1,12 @@
 import * as style from ".";
-import { Button } from "../button/button";
-import { Items } from "../items/items";
-import { useTodo } from "../../context/todoContext";
+import { Button } from "../../../components/button/button";
+import { Items } from "../../../components/items/items";
+import { useTodo } from "../../../context/todoContext";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { Trash } from "phosphor-react";
 
 export const Todo = () => {
   const todo = useTodo();
-
-  function handleClearTodo() {
-    const confirm = window.confirm('do you really want to delete ALL tasks?')
-
-    if(confirm) {
-      todo.deleteAll()
-    }
-  }
 
   return (
     <style.StyledWrapperTodo>
@@ -29,15 +21,12 @@ export const Todo = () => {
         <Button type="submit">Submit</Button>
       </style.Form>
 
-
-      {todo.todo.length === 0 ? (
+      {todo.todo.length === 0 && (
         <p>
           What do you have to <style.EmptyMessage>do</style.EmptyMessage>?
         </p>
-      ) : (
-        <Button onClick={handleClearTodo}>Clear <Trash size={24} weight="fill" /></Button>
-        )}
-        <style.Error>{todo.error}</style.Error>
+      )}
+      {todo.error && <style.Error>{todo.error}</style.Error>}
 
       <DragDropContext onDragEnd={todo.handleDragEnd}>
         <Droppable droppableId="todos">

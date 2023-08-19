@@ -9,7 +9,7 @@ export const TimerOption = styled.p`
   width: 100%;
   font-weight: bold;
   user-select: none;
-  font-size: min(2.8rem, 5vw);
+  font-size: min(2.8rem, 8vw);
   color: ${({ theme }) => theme.LightColor};
   position: relative;
   cursor: pointer;

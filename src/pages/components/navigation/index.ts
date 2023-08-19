@@ -4,7 +4,6 @@ import styled from "styled-components";
 export const Navbar = styled(motion.nav)`
   display: flex;
   justify-content: center;
-  margin-top: 1rem;
 `;
 
 export const List = styled(motion.ul)`
@@ -19,8 +18,7 @@ export const List = styled(motion.ul)`
 
 export const Text = styled.p`
   z-index: 3;
-  padding: 1rem;
-
+  padding:  1rem;
   font-weight: bold;
   font-size: 1.3rem;
   position: relative;

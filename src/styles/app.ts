@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const Title = styled.h1`
-  font-size: 5rem;
+  font-size: 4rem;
   text-align: center;
   color: ${({ theme }) => theme.LightColor};
 `;
 
 export const MainCard = styled.main`
-  margin-top: 20px;
+  margin-top: 15px;
   padding: 20px;
   border-radius: 30px;
   box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.2);
