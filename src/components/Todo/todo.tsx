@@ -2,14 +2,7 @@ import * as style from ".";
 import { Button } from "../button/button";
 import { Items } from "../items/items";
 import { useTodo } from "../../context/todoContext";
-import {
-  DragDropContext,
-  Draggable,
-  Droppable,
-  DropResult,
-} from "react-beautiful-dnd";
-import { useState } from "react";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 
 export const Todo = () => {
   const todo = useTodo();
@@ -29,7 +22,11 @@ export const Todo = () => {
 
       <style.Error>{todo.error}</style.Error>
 
-      {todo.todo.length === 0 && <p>adicione a sua tarefa</p>}
+      {todo.todo.length === 0 && (
+        <p>
+          What do you have to <style.EmptyMessage>do</style.EmptyMessage>?
+        </p>
+      )}
 
       <DragDropContext onDragEnd={todo.handleDragEnd}>
         <Droppable droppableId="todos">
@@ -37,19 +34,22 @@ export const Todo = () => {
             <style.List {...provided.droppableProps} ref={provided.innerRef}>
               {todo.todo.map((item, idx) => (
                 <Draggable key={idx} draggableId={idx.toString()} index={idx}>
-                  {(provided) => (
-                    <div
-                      {...provided.draggableProps}
-                      {...provided.dragHandleProps}
-                      ref={provided.innerRef}
-                    >
-                      <Items
-                        item={item}
-                        deleteItem={todo.deleteItem}
-                        updateItem={todo.updateItem}
-                      />
-                    </div>
-                  )}
+                  {(provided, { isDragging }) => {
+                    return (
+                      <div
+                        {...provided.draggableProps}
+                        {...provided.dragHandleProps}
+                        ref={provided.innerRef}
+                      >
+                        <Items
+                          item={item}
+                          isDragging={isDragging}
+                          deleteItem={todo.deleteItem}
+                          updateItem={todo.updateItem}
+                        />
+                      </div>
+                    );
+                  }}
                 </Draggable>
               ))}
               {provided.placeholder}

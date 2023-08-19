@@ -14,6 +14,16 @@ export const StyledWrapperTodo = styled.section`
   @media (max-width: 590px) {
     max-width: 95vw;
   }
+
+  p {
+    font-size: 1.2rem;
+  }
+`;
+
+export const EmptyMessage = styled.span`
+  background: ${({ theme }) => theme.BackgroundLight};
+  border-radius: 0.4rem;
+  padding: 0.2rem;
 `;
 
 export const Form = styled.form`
@@ -25,20 +35,23 @@ export const Form = styled.form`
 export const Input = styled.input`
   background: ${({ theme }) => theme.BackgroundLight};
   padding: 0 0.4rem;
-  color: ${({ theme }) => theme.BackgroundLight};
+  color: ${({ theme }) => theme.LightColor};
   outline: none;
   font-size: 1.5rem;
   width: 100%;
+  transition: 250ms;
   font-weight: 600;
   border-radius: 1rem;
   border: 0.2rem solid ${({ theme }) => theme.BackgroundLight};
   border-bottom: 0.4rem solid ${({ theme }) => theme.BackgroundLight};
 
   &::placeholder {
+    color: ${({ theme }) => theme.LightColor};
     font-weight: 700;
   }
-
+  
   &:focus {
+    color: ${({ theme }) => theme.BackgroundLight};
     background: ${({ theme }) => theme.LightColor};
   }
 `;

@@ -44,6 +44,10 @@ export const TodoProvider = ({ children }: SearchTypes) => {
   const handleSubmit = useCallback(
     (ev: FormEvent<HTMLFormElement>) => {
       ev.preventDefault();
+      if (input === "") {
+        setError("cannot create an empty task");
+        return;
+      }
       if (input.length >= 30) {
         setError("To big, less details please");
         return;
