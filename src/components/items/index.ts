@@ -1,21 +1,15 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-interface StyleWrapperProps {
-  isEditable: boolean;
-  isDragging: boolean;
-}
-
-interface StyleEditableProps {
+interface StyleProps {
   isEditable: boolean;
 }
 
-export const Wrapper = styled(motion.li)<StyleWrapperProps>`
+export const Wrapper = styled(motion.li)<StyleProps>`
   align-items: center;
   display: flex;
   justify-content: space-between;
   font-size: 24px;
-  rotate: ${({ isDragging}) => isDragging ? "5deg" : "" };
   background: ${({ theme, isEditable }) =>
     isEditable ? theme.LightColor : theme.BackgroundLight};
   border-radius: 1rem;
@@ -24,7 +18,7 @@ export const Wrapper = styled(motion.li)<StyleWrapperProps>`
   gap: 8px;
 `;
 
-export const Input = styled.input<StyleEditableProps>`
+export const Input = styled.input<StyleProps>`
   outline: none;
   background: none;
   border: none;
@@ -50,7 +44,7 @@ export const ButtonWrapper = styled.div`
   gap: 0.4rem;
 `;
 
-export const Button = styled.button<StyleEditableProps>`
+export const Button = styled.button<StyleProps>`
   cursor: pointer;
   border: none;
   background: none;

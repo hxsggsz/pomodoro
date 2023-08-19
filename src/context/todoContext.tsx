@@ -83,7 +83,7 @@ export const TodoProvider = ({ children }: SearchTypes) => {
     [todo, setTodo]
   );
 
-  const deleteAll = () => setTodo([""]);
+  const deleteAll = () => setTodo([]);
 
   const handleDragEnd = (response: DropResult) => {
     if (!response.destination) return;

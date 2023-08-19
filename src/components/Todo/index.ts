@@ -30,6 +30,7 @@ export const Form = styled.form`
   display: flex;
   width: 100%;
   gap: 8px;
+  margin-bottom: 1rem;
 `;
 
 export const Input = styled.input`
