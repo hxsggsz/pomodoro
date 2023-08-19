@@ -1,24 +1,31 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const Wrapper = styled(motion.li)`
+interface StyleProps {
+  isEditable: boolean;
+}
+
+export const Wrapper = styled(motion.li)<StyleProps>`
   align-items: center;
   display: flex;
   justify-content: space-between;
   font-size: 24px;
-  background: ${({ theme }) => theme.BackgroundLight};
+  background: ${({ theme, isEditable }) =>
+    isEditable ? theme.LightColor : theme.BackgroundLight};
   border-radius: 1rem;
+  transition: 0.3s;
   padding: 12px;
   gap: 8px;
 `;
 
-export const Input = styled.input`
+export const Input = styled.input<StyleProps>`
   outline: none;
   background: none;
   border: none;
   font-family: Ubuntu Condensed;
   width: 100%;
-  color: ${({ theme }) => theme.LightColor};
+  color: ${({ theme, isEditable }) =>
+    isEditable ? theme.contrast : theme.LightColor};
   font-size: 1.4rem;
   font-weight: 700;
 `;
@@ -37,15 +44,17 @@ export const ButtonWrapper = styled.div`
   gap: 0.4rem;
 `;
 
-export const Button = styled.button`
+export const Button = styled.button<StyleProps>`
   cursor: pointer;
   border: none;
   background: none;
-  color: ${({ theme }) => theme.LightColor};
+  color: ${({ theme, isEditable }) =>
+    isEditable ? theme.contrast : theme.LightColor};
   padding: 0.2rem;
 
   &:hover {
-    background: ${({ theme }) => theme.contrast};
+    background: ${({ theme, isEditable }) =>
+      isEditable ? theme.LightColor : theme.contrast};
     border-radius: 50%;
   }
 `;

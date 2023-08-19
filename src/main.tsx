@@ -6,7 +6,7 @@ import { ThemesProvider } from "./context/ColorModeContex";
 import { TodoProvider } from "./context/todoContext";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <React.StrictMode>
+  <>
     <TodoProvider>
       <ThemesProvider>
         <OptionsProvider>
@@ -14,5 +14,5 @@ ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
         </OptionsProvider>
       </ThemesProvider>
     </TodoProvider>
-  </React.StrictMode>
+  </>
 );

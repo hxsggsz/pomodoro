@@ -1,4 +1,10 @@
-import { ChangeEvent, FormEvent, useEffect, useState } from "react";
+import {
+  ChangeEvent,
+  FormEvent,
+  useCallback,
+  useEffect,
+  useState,
+} from "react";
 import { useLocalStorage } from "./useLocalStorage";
 
 export function useTodo() {
@@ -7,11 +13,11 @@ export function useTodo() {
   const [input, setInput] = useState("");
   const [error, setError] = useState("");
 
-  const HandleChange = (ev: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (ev: ChangeEvent<HTMLInputElement>) => {
     setInput(ev.target.value);
   };
 
-  const HandleSubmit = (ev: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (ev: FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
     if (input.length <= 3) {
       setError("Please, give more detail");
@@ -40,12 +46,13 @@ export function useTodo() {
     }
   };
 
-  const DeleteItem = (idx: number) => {
-    if (!todo[idx]) return;
-    // const deletedItem = todo.slice(idx, 1);
-    const deletedItem = todo.filter((_, index) => index !== idx);
-    setTodo([...deletedItem]);
-  };
+  const deleteItem = useCallback(
+    (item: string) => {
+      const deletedItem = todo.filter((it) => it !== item);
+      setTodo([...deletedItem]);
+    },
+    [todo, setTodo]
+  );
 
   const DeleteFull = () => setTodo([""]);
 
@@ -57,10 +64,10 @@ export function useTodo() {
     todo,
     input,
     error,
-    DeleteItem,
+    deleteItem,
     DeleteFull,
-    HandleChange,
-    HandleSubmit,
+    handleChange,
+    handleSubmit,
     updateItem,
   };
 }
