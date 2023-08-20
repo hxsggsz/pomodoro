@@ -10,12 +10,6 @@ export const StyledTimer = styled.div`
     color: ${({ theme }) => theme.LightColor};
     font-size: 6rem;
   }
-
-  .gear {
-    margin: 30% 0;
-    cursor: pointer;
-    color: ${({ theme }) => theme.LightColor};
-  }
 `;
 
 export const StyledWrapButtons = styled.div`

@@ -7,7 +7,7 @@ export const TimerNav = () => {
   const { activeTimer, setActiveTimer } = useOptions();
 
   return (
-    <style.TimerList>
+    <motion.ul>
       {data.map((option, index) => (
         <motion.li key={index} onClick={() => setActiveTimer(index)}>
           <style.TimerOption>
@@ -19,6 +19,6 @@ export const TimerNav = () => {
           </style.TimerOption>
         </motion.li>
       ))}
-    </style.TimerList>
+    </motion.ul>
   );
 };

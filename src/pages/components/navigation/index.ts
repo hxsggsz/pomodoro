@@ -10,7 +10,7 @@ export const List = styled(motion.ul)`
   gap: 1rem;
   cursor: pointer;
   list-style: none;
-  border-radius: 3rem;
+  border-radius: 30px;
   box-shadow: 0.5rem 0.5rem 0.5rem 0.1rem rgba(0, 0, 0, 0.2);
   border: 0.5rem solid ${({ theme }) => theme.backgroundBase};
   background-color: ${({ theme }) => theme.backgroundBase};
@@ -31,6 +31,6 @@ export const Background = styled(motion.span)`
   inset: 0;
   z-index: -1;
   position: absolute;
-  border-radius: 3rem;
+  border-radius: 30px;
   background: ${({ theme }) => theme.BackgroundLight};
 `;

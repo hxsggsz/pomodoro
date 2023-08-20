@@ -6,12 +6,12 @@ export const StyledWrapperTodo = styled.section`
   flex-direction: column;
   align-items: center;
   padding: 1.6rem;
-  margin-top: 20px;
+  margin-top: 2rem;
   border-radius: 30px;
   box-shadow: 5px 5px 5px 1px rgba(0, 0, 0, 0.2);
   background: ${({ theme }) => theme.backgroundBase};
 
-  @media (max-width: 590px) {
+  @media (max-width: 59rem) {
     max-width: 95vw;
   }
 `;
@@ -23,7 +23,7 @@ export const EmptyParagraph = styled.p`
 
 export const EmptyMessage = styled.span`
   background: ${({ theme }) => theme.BackgroundLight};
-  border-radius: 0.4rem;
+  border-radius: 4px;
   padding: 0.2rem;
 `;
 
@@ -42,7 +42,7 @@ export const Input = styled.input`
   width: 100%;
   transition: 250ms;
   font-weight: 600;
-  border-radius: 1rem;
+  border-radius: 10px;
   border: 0.2rem solid ${({ theme }) => theme.BackgroundLight};
   border-bottom: 0.4rem solid ${({ theme }) => theme.BackgroundLight};
 
@@ -58,7 +58,7 @@ export const Input = styled.input`
 `;
 
 export const WrapperList = styled.div`
-  border-radius: 1.4rem;
+  border-radius:14px;
   overflow: hidden;
   width: 100%;
 `;
@@ -79,7 +79,7 @@ export const List = styled.ul`
 
   &::-webkit-scrollbar-thumb {
     background: ${({ theme }) => theme.LightColor};
-    border-radius: 1rem;
+    border-radius: 10px;
   }
 `;
 

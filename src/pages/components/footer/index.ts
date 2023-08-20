@@ -21,7 +21,7 @@ export const Text = styled.p`
   font-size: 1.4rem;
   font-weight: 700;
 
-  @media (max-width: 768px) {
+  @media (max-width: 43em) {
     display: none;
   }
 `;

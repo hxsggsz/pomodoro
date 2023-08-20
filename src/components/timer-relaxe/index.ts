@@ -10,12 +10,6 @@ export const StyledTimer = styled.div`
     color: ${({ theme }) => theme.LightColor};
     font-size: 6rem;
   }
-
-  .gear {
-    margin: 30% 0;
-    cursor: pointer;
-    color: ${({ theme }) => theme.LightColor};
-  }
 `;
 
 export const StyledWrapButtons = styled.div`
@@ -40,7 +34,7 @@ export const StyledWrapButtons = styled.div`
 `;
 
 export const StyledCounter = styled.div`
-  padding: 3px 5px;
+  padding: 0.3rem 0.5rem;
   overflow: hidden;
   border-radius: 10px;
   border: 2px solid #000;

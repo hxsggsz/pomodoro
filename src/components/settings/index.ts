@@ -16,7 +16,7 @@ export const Selection = styled.select`
   padding: 1rem 2rem;
   margin-right: 1rem;
   margin-top: 2rem;
-  border-radius: 0.5rem;
+  border-radius: 5px;
   outline: none;
   font-size: 1.2rem;
   font-weight: semibold;
@@ -33,14 +33,14 @@ export const Options = styled.ul`
 
 export const OptionOne = styled(motion.li)`
   cursor: pointer;
-  padding: 1.2rem;
+  padding: min(1rem, 4vw);
   border-radius: 50%;
   border: 2px solid #000;
   background: #9b1d20;
 `;
 
 export const OptionTwo = styled(motion.li)`
-  padding: 1.2rem;
+  padding: min(1rem, 4vw);
   cursor: pointer;
   border-radius: 50%;
   border: 2px solid #000;
@@ -48,7 +48,7 @@ export const OptionTwo = styled(motion.li)`
 `;
 
 export const OptionThree = styled(motion.li)`
-  padding: 1.2rem;
+  padding: min(1rem, 4vw);
   cursor: pointer;
   border-radius: 50%;
   border: 2px solid #000;
@@ -56,7 +56,7 @@ export const OptionThree = styled(motion.li)`
 `;
 
 export const OptionFour = styled(motion.li)`
-  padding: 1.2rem;
+  padding: min(1rem, 4vw);
   cursor: pointer;
   border-radius: 50%;
   border: 2px solid #000;

@@ -12,10 +12,10 @@ export const Wrapper = styled(motion.li)<StyleProps>`
   font-size: 24px;
   background: ${({ theme, isEditable }) =>
     isEditable ? theme.LightColor : theme.BackgroundLight};
-  border-radius: 1rem;
+  border-radius: 10px;
   transition: 250ms;
-  padding: 12px;
-  gap: 8px;
+  padding: 1.2rem;
+  gap: 0.8rem;
 `;
 
 export const Input = styled.input<StyleProps>`

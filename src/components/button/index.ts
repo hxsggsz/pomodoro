@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const StyledButton = styled.button`
-  padding: 8px 10px;
+  padding: 0.8rem 1rem;
   cursor: pointer;
   max-width: 100%;
   font-size: 1.3rem;
@@ -9,6 +9,7 @@ export const StyledButton = styled.button`
   border-radius: 12px;
   display: flex;
   gap: 6px;
+  transition: background 250ms;
   align-items: center;
   justify-content: center; 
   border: 2px solid ${({ theme }) => theme.LightColor};

@@ -1,10 +1,6 @@
 import { motion } from "framer-motion";
 import styled from "styled-components";
 
-export const TimerList = styled(motion.ul)`
-  gap: 0.6rem;
-`;
-
 export const TimerOption = styled.p`
   width: 100%;
   font-weight: bold;
