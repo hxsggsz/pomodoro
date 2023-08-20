@@ -8,33 +8,34 @@ import { TimerRelaxe } from "../components/timer-relaxe/timer-relaxe";
 import * as style from "../styles/app";
 import { useOptions } from "../context/optionsContext";
 import { Footer } from "./components/footer/footer";
+import { useColors } from "../context/ColorModeContex";
 
 export const Home = () => {
   const { activeTimer, activeIndex } = useOptions();
+  const { handleTheme } = useColors();
   return (
     <>
       <style.Title>Pomodoro</style.Title>
 
       <NavBar />
       <AnimatePresence>
+        {activeIndex === 0 ? (
+          <style.MainCard>
+            <TimerNav />
 
-      {activeIndex === 0 ? (
-        <style.MainCard>
-          <TimerNav />
-
-          {activeTimer === 0 ? (
-            <TimerEstude />
-          ) : activeTimer === 1 ? (
-            <TimerRelaxe />
-          ) : (
-            <Settings />
+            {activeTimer === 0 ? (
+              <TimerEstude />
+            ) : activeTimer === 1 ? (
+              <TimerRelaxe />
+            ) : (
+              <Settings handleTheme={handleTheme} />
             )}
-        </style.MainCard>
-      ) : (
-        <Todo />
+          </style.MainCard>
+        ) : (
+          <Todo />
         )}
-        </AnimatePresence>
-        <Footer />
+      </AnimatePresence>
+      <Footer />
     </>
-  )
-}
+  );
+};

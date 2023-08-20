@@ -3,6 +3,8 @@ import * as style from ".";
 import { useTodo } from "../../../context/todoContext";
 import { Button } from "../../../components/button/button";
 import { useOptions } from "../../../context/optionsContext";
+import { FooterLinks } from "../FooterLinks/footerLinks";
+
 export const Footer = () => {
   const { deleteAll, todo } = useTodo();
   const { activeIndex } = useOptions();
@@ -14,21 +16,21 @@ export const Footer = () => {
       deleteAll();
     }
   }
+
   return (
     <style.Footer>
       <style.Wrapper>
-        <style.WrapperLinks
+        <FooterLinks
           href="https://www.linkedin.com/in/hxsggsz/"
-          target="_blank"
-        >
-          <LinkedinLogo size={32} weight="fill" />
-          <style.Text>Linkedin</style.Text>
-        </style.WrapperLinks>
+          socialMedia="Linkedin"
+          icon={LinkedinLogo}
+        />
 
-        <style.WrapperLinks href="https://github.com/hxsggsz/" target="_blank">
-          <GithubLogo size={32} weight="fill" />
-          <style.Text>Github</style.Text>
-        </style.WrapperLinks>
+        <FooterLinks
+          href="https://github.com/hxsggsz"
+          socialMedia="Github"
+          icon={GithubLogo}
+        />
       </style.Wrapper>
 
       {activeIndex !== 0 && todo.length > 0 && (
