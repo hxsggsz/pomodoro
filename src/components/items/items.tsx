@@ -4,7 +4,6 @@ import { KeyboardEvent, useEffect, useRef, useState } from "react";
 
 interface ItemsProps {
   item: string;
-  isDragging: boolean;
   deleteItem: (item: string) => void;
   updateItem: (
     itemToUpdate: string,
@@ -34,7 +33,7 @@ export const Items = (props: ItemsProps) => {
     <style.Wrapper
       isEditable={isEditable}
       initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0, rotate: props.isDragging ? '1deg' : "0deg" }}
+      animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.1, ease: "anticipate" }}
     >

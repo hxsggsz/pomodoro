@@ -27,14 +27,14 @@ export const useTimer = (key: string, InitialMinutes: number) => {
   useEffect(() => {
     if (!pause) {
       intervalRef.current = setInterval(() => {
-        setSeconds(seconds - 1)
+        setSeconds(prev => prev - 1)
         if (seconds === 0) {
-          setMinutes(minutes - 1)
+          setMinutes(prev => prev - 1)
           setSeconds(59)
         }
       }, 1000)
-      return () => clearInterval(intervalRef.current)
     }
+    return () => clearInterval(intervalRef.current)
   })
 
   useEffect(() => {

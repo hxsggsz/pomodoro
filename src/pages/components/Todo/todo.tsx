@@ -18,42 +18,43 @@ export const Todo = () => {
           placeholder="Your todo here"
         />
 
-        <Button type="submit">Submit</Button>
+        <Button disabled={todo.input.length === 0} type="submit">Submit</Button>
       </style.Form>
 
-      {todo.todo.length === 0 && (
-        <p>
+      {todo.todo.length === 0 &&  (
+        <style.EmptyParagraph>
           What do you have to <style.EmptyMessage>do</style.EmptyMessage>?
-        </p>
+        </style.EmptyParagraph>
       )}
       {todo.error && <style.Error>{todo.error}</style.Error>}
 
       <DragDropContext onDragEnd={todo.handleDragEnd}>
         <Droppable droppableId="todos">
           {(provided) => (
-            <style.List {...provided.droppableProps} ref={provided.innerRef}>
-              {todo.todo.map((item, idx) => (
-                <Draggable key={idx} draggableId={idx.toString()} index={idx}>
-                  {(provided, { isDragging }) => {
-                    return (
-                      <div
-                        {...provided.draggableProps}
-                        {...provided.dragHandleProps}
-                        ref={provided.innerRef}
-                      >
-                        <Items
-                          item={item}
-                          isDragging={isDragging}
-                          deleteItem={todo.deleteItem}
-                          updateItem={todo.updateItem}
-                        />
-                      </div>
-                    );
-                  }}
-                </Draggable>
-              ))}
-              {provided.placeholder}
-            </style.List>
+            <style.WrapperList>
+              <style.List {...provided.droppableProps} ref={provided.innerRef}>
+                {todo.todo.map((item, idx) => (
+                  <Draggable key={idx} draggableId={idx.toString()} index={idx}>
+                    {(provided) => {
+                      return (
+                        <div
+                          {...provided.draggableProps}
+                          {...provided.dragHandleProps}
+                          ref={provided.innerRef}
+                        >
+                          <Items
+                            item={item}
+                            deleteItem={todo.deleteItem}
+                            updateItem={todo.updateItem}
+                          />
+                        </div>
+                      );
+                    }}
+                  </Draggable>
+                ))}
+                {provided.placeholder}
+              </style.List>
+            </style.WrapperList>
           )}
         </Droppable>
       </DragDropContext>

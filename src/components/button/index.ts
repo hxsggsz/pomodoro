@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const StyledButton = styled.button`
-  padding: 10px 14px;
+  padding: 8px 10px;
   cursor: pointer;
   max-width: 100%;
   font-size: 1.3rem;
@@ -23,5 +23,11 @@ export const StyledButton = styled.button`
   &:active {
     border-bottom: 2px solid ${({ theme }) => theme.LightColor};
     margin-top: 2px;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+    background: #1e1e1e;
   }
 `;

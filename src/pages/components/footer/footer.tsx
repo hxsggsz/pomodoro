@@ -2,8 +2,10 @@ import { GithubLogo, LinkedinLogo, Trash } from "phosphor-react";
 import * as style from ".";
 import { useTodo } from "../../../context/todoContext";
 import { Button } from "../../../components/button/button";
+import { useOptions } from "../../../context/optionsContext";
 export const Footer = () => {
-  const { deleteAll } = useTodo();
+  const { deleteAll, todo } = useTodo();
+  const { activeIndex } = useOptions();
 
   function handleClearTodo() {
     const confirm = window.confirm("do you really want to delete ALL tasks?");
@@ -14,8 +16,7 @@ export const Footer = () => {
   }
   return (
     <style.Footer>
-      <style.AlignIcons>
-      <style.WrapperLinks>
+      <style.Wrapper>
         <style.WrapperLinks
           href="https://www.linkedin.com/in/hxsggsz/"
           target="_blank"
@@ -28,13 +29,14 @@ export const Footer = () => {
           <GithubLogo size={32} weight="fill" />
           <style.Text>Github</style.Text>
         </style.WrapperLinks>
-      </style.WrapperLinks>
+      </style.Wrapper>
 
-      <Button onClick={handleClearTodo}>
-        <Trash size={24} weight="fill" />
-        <style.Text>Clear</style.Text>
-      </Button>
-      </style.AlignIcons>
+      {activeIndex !== 0 && todo.length > 0 && (
+        <Button onClick={handleClearTodo}>
+          <Trash size={24} weight="fill" />
+          <style.Text>Clear</style.Text>
+        </Button>
+      )}
     </style.Footer>
   );
 };

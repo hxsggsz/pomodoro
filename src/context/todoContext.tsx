@@ -54,7 +54,7 @@ export const TodoProvider = ({ children }: SearchTypes) => {
       }
       setInput("");
       setError("");
-      setTodo([...todo, input]);
+      setTodo([input, ...todo]);
     },
     [setError, setInput, setTodo, todo, input]
   );
