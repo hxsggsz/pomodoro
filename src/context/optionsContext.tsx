@@ -14,12 +14,6 @@ interface SearchTypes {
 }
 
 export interface StateProps {
-  tempoEstude: number
-  setTempoEstude: (minutos: number) => void
-
-  tempoRelaxe: number
-  setTempoRelaxe: (minutos: number) => void
-
   activeIndex: number
   setActiveIndex: Dispatch<SetStateAction<number>>
 
@@ -33,8 +27,6 @@ export const useOptions = () => useContext(OptionsContext)
 
 export const OptionsProvider = ({ children }: SearchTypes) => {
   const [timerStorage, setTimerStorage] = useLocalStorage('timer-nav', {timer: 0, index: 0})
-  const [tempoEstude, setTempoEstude] = useState<number>(25)
-  const [tempoRelaxe, setTempoRelaxe] = useState<number>(10)
   const [activeTimer, setActiveTimer] = useState(timerStorage.timer)
   const [activeIndex, setActiveIndex] = useState(timerStorage.index)
 
@@ -42,14 +34,9 @@ export const OptionsProvider = ({ children }: SearchTypes) => {
     setTimerStorage({timer: activeTimer, index: activeIndex})
   }, [activeTimer, activeIndex])
   
-
   return (
     <OptionsContext.Provider
       value={{
-        tempoEstude,
-        setTempoEstude,
-        tempoRelaxe,
-        setTempoRelaxe,
         activeIndex,
         setActiveIndex,
         activeTimer,

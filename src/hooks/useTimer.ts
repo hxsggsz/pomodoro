@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useRef, useEffect } from 'react'
 import { useLocalStorage } from './useLocalStorage'
 
@@ -12,8 +11,8 @@ export const useTimer = (key: string, InitialMinutes: number) => {
   const [minutes, setMinutes] = useState(timerStorage.min)
   const [pause, setPause] = useState(true)
 
-  const intervalRef = useRef<ReturnType<typeof setInterval>>()
   const alarm = new Audio('/87558731.mp3')
+  const intervalRef = useRef<ReturnType<typeof setInterval>>()
 
   function handlePause() {
     setPause((prevState) => !prevState)

@@ -10,7 +10,7 @@ import { Button } from "../button/button";
 export const TimerRelaxe = () => {
   const { minutes, seconds, pause, handlePause, handleRestart } = useTimer(
     "timer-relax",
-    10
+    5
   )
 
   return (
