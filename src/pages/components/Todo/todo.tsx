@@ -4,9 +4,11 @@ import { Items } from "../../../components/items/items";
 import { useTodo } from "../../../context/todoContext";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import { Trash } from "phosphor-react";
+import { useTranslation } from "react-i18next";
 
 export const Todo = () => {
   const todo = useTodo();
+  const { t } = useTranslation();
 
   return (
     <style.StyledWrapperTodo>
@@ -15,15 +17,18 @@ export const Todo = () => {
           type="text"
           value={todo.input}
           onChange={todo.handleChange}
-          placeholder="Your todo here"
+          placeholder={t("todo-placeholder")}
         />
 
-        <Button disabled={todo.input.length === 0} type="submit">Submit</Button>
+        <Button disabled={todo.input.length === 0} type="submit">
+          {t("submit")}
+        </Button>
       </style.Form>
 
-      {todo.todo.length === 0 &&  (
+      {todo.todo.length === 0 && (
         <style.EmptyParagraph>
-          What do you have to <style.EmptyMessage>do</style.EmptyMessage>?
+          {t("todo-base")}{" "}
+          <style.EmptyMessage>{t("todo-final")}</style.EmptyMessage>
         </style.EmptyParagraph>
       )}
       {todo.error && <style.Error>{todo.error}</style.Error>}

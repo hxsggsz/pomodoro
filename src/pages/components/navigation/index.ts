@@ -18,7 +18,7 @@ export const List = styled(motion.ul)`
 
 export const Text = styled.p`
   z-index: 3;
-  padding:  1rem;
+  padding: 1rem;
   font-weight: bold;
   font-size: 1.3rem;
   position: relative;
@@ -30,6 +30,7 @@ export const Text = styled.p`
 export const Background = styled(motion.span)`
   inset: 0;
   z-index: -1;
+  padding: 0.2rem;
   position: absolute;
   border-radius: 30px;
   background: ${({ theme }) => theme.BackgroundLight};

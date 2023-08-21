@@ -2,8 +2,10 @@ import { StyledTimer, StyledWrapButtons } from ".";
 import { ClockCounterClockwise, HandPalm, Play } from "phosphor-react";
 import { useTimer } from "../../hooks/useTimer";
 import { Button } from "../button/button";
+import { useTranslation } from "react-i18next";
 
 export const TimerEstude = () => {
+  const { t } = useTranslation();
   const { minutes, seconds, pause, handlePause, handleRestart } = useTimer(
     "timer",
     25
@@ -21,19 +23,19 @@ export const TimerEstude = () => {
           {pause ? (
             <>
               <Play size={24} weight="fill" />
-              Start
+              {t("start")}
             </>
           ) : (
             <>
               <HandPalm size={24} weight="bold" />
-              Stop
+              {t("stop")}
             </>
           )}
         </Button>
 
         <Button onClick={handleRestart}>
           <ClockCounterClockwise size={24} weight="bold" />
-          Restart
+          {t("restart")}
         </Button>
       </StyledWrapButtons>
     </StyledTimer>

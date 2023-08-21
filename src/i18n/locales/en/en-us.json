@@ -1,0 +1,21 @@
+{
+  "translation": {
+    "Timer": "Timer",
+    "Todo": "Todo",
+    "break": "Break",
+    "options": "Options",
+    "todo-placeholder": "Your Todo here",
+    "submit": "Submit",
+    "todo-base": "What do you have to",
+    "todo-final": "do?",
+    "btn-clear": "Clear",
+    "clear-message": "do you really want to DELETE all tasks?",
+    "change-theme": "Select one color",
+    "start": "Start",
+    "stop": "Stop",
+    "restart": "Restart",
+    "lang-message": "Select one language",
+    "pt": "Portuguese",
+    "en": "English"
+  }
+}

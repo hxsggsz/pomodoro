@@ -3,14 +3,16 @@ import * as style from ".";
 import { useTodo } from "../../../context/todoContext";
 import { Button } from "../../../components/button/button";
 import { useOptions } from "../../../context/optionsContext";
-import { FooterLinks } from "../FooterLinks/footerLinks";
+import { FooterLinks } from "../../../components/FooterLinks/footerLinks";
+import { useTranslation } from "react-i18next";
 
 export const Footer = () => {
+  const { t } = useTranslation();
   const { deleteAll, todo } = useTodo();
   const { activeIndex } = useOptions();
 
   function handleClearTodo() {
-    const confirm = window.confirm("do you really want to delete ALL tasks?");
+    const confirm = window.confirm(t("clear-message"));
 
     if (confirm) {
       deleteAll();
@@ -36,7 +38,7 @@ export const Footer = () => {
       {activeIndex !== 0 && todo.length > 0 && (
         <Button onClick={handleClearTodo}>
           <Trash size={24} weight="fill" />
-          <style.Text>Clear</style.Text>
+          <style.Text>{t("btn-clear")}</style.Text>
         </Button>
       )}
     </style.Footer>

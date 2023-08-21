@@ -21,6 +21,7 @@ export const TimerEffect = styled(motion.span)`
   z-index: -1;
   inset: 0;
   position: absolute;
+  padding: 1.8rem 0;
   background: ${({ theme }) => theme.BackgroundLight};
   border-radius: 12px;
 `;

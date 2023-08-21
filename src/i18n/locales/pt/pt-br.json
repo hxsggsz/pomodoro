@@ -1,0 +1,21 @@
+{
+  "translation": {
+    "Timer": "Tempo",
+    "Todo": "Tarefas",
+    "break": "Pausa",
+    "options": "Opções",
+    "todo-placeholder": "Suas Tarefas aqui",
+    "submit": "Enviar",
+    "todo-base": "O que você tem que",
+    "todo-final": "fazer?",
+    "btn-clear": "Limpar",
+    "clear-message": "você realmente quer apagar TODAS taréfas?",
+    "change-theme": "Escolha uma cor",
+    "start": "Começar",
+    "stop": "Parar",
+    "restart": "Reiniciar",
+    "lang-message": "Selecione uma linguagem",
+    "pt": "Português",
+    "en": "Inglês"
+  }
+}

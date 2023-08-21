@@ -1,10 +1,13 @@
 import * as style from ".";
 import { motion } from "framer-motion";
 import { useOptions } from "../../context/optionsContext";
+import { useTranslation } from 'react-i18next';
 
 export const TimerNav = () => {
-  const data = ["Pomodoro", "Break", "Theme"];
+  const { t } = useTranslation()
   const { activeTimer, setActiveTimer } = useOptions();
+
+  const data = ["Pomodoro", t("break"), t("options")];
 
   return (
     <motion.ul>

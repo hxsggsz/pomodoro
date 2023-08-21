@@ -47,4 +47,8 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
     color: ${({ theme }) => theme.LightColor};    
   }
+
+  button {
+  all: unset;
+}
 `;

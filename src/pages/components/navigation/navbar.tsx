@@ -1,11 +1,13 @@
 import * as style from ".";
 import { motion } from "framer-motion";
 import { useOptions } from "../../../context/optionsContext";
+import { useTranslation } from 'react-i18next';
 
 export function NavBar() {
+  const { t } = useTranslation()
   const { activeIndex, setActiveIndex } = useOptions();
 
-  const data = ["Timer", "Todo"];
+  const data = [t("Timer"), t("Todo")];
 
   return (
     <style.Navbar>

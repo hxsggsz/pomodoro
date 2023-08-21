@@ -1,13 +1,22 @@
 import * as style from ".";
+import { useTranslation } from "react-i18next";
+import { Select } from "../select/select";
 
 export const Settings = ({
   handleTheme,
 }: {
   handleTheme: (color: string) => void;
 }) => {
+  const { t, i18n } = useTranslation();
+
+  const options = [
+    { option: t("pt"), value: "pt-BR" },
+    { option: t('en'), value: "en-US" },
+  ];
+
   return (
     <style.Form>
-      <h2>Escolha uma cor</h2>
+      <h2>{t("change-theme")}</h2>
 
       <style.Options>
         <style.OptionOne
@@ -32,6 +41,7 @@ export const Settings = ({
           onClick={() => handleTheme("black")}
         />
       </style.Options>
+      <Select options={options} handleSelect={i18n.changeLanguage} />
     </style.Form>
   );
 };
