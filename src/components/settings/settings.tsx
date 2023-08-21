@@ -14,6 +14,11 @@ export const Settings = ({
     { option: t('en'), value: "en-US" },
   ];
 
+  const handleLang = (lang: string) => {
+    i18n.changeLanguage(lang)
+    localStorage.setItem('lang', lang)
+  }
+
   return (
     <style.Form>
       <h2>{t("change-theme")}</h2>
@@ -41,7 +46,7 @@ export const Settings = ({
           onClick={() => handleTheme("black")}
         />
       </style.Options>
-      <Select options={options} handleSelect={i18n.changeLanguage} />
+      <Select options={options} handleSelect={handleLang} />
     </style.Form>
   );
 };
