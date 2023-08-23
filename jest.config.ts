@@ -9,5 +9,4 @@ export default {
 
   roots: ["<rootDir>/src/"],
   modulePaths: ["<rootDir>/src/"],
-  setupFilesAfterEnv: ["<rootDir>/.jest/setup.ts"],
 };
