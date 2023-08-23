@@ -13,7 +13,8 @@
     "deploy": "gh-pages -d build",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "test": "jest --watch"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@hookform/resolvers": "^2.9.10",
@@ -24,7 +25,6 @@
     "framer-motion": "^7.10.2",
     "gh-pages": "^4.0.0",
     "i18next": "^23.4.4",
-    "i18next-localstorage-backend": "^4.1.1",
     "phosphor-react": "^1.4.1",
     "react": "^18.2.0",
     "react-beautiful-dnd": "^13.1.1",
@@ -37,6 +37,7 @@
     "zustand": "^4.4.1"
   },
   "devDependencies": {
+    "@playwright/test": "^1.37.1",
     "@rocketseat/eslint-config": "^1.2.0",
     "@swc/core": "^1.3.23",
     "@swc/jest": "^0.2.24",
