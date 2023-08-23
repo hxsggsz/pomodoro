@@ -20,11 +20,20 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "types": [
-      "vite/client"
+      "vite/client",
+      "node",
+      "jest",
     ]
   },
   "include": [
-    "src"
+    "src",
+    "setupTests.js",
+    "playwright-ct.config.ts", 
+    "playwright/**/*",
+    "e2e-testing/**/*",
+  ],
+  "exclude": [
+    "node_modules"
   ],
   "references": [
     {
