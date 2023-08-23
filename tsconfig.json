@@ -26,8 +26,8 @@
     ]
   },
   "include": [
-    "src",
-    "setupTests.js",
+    "src/**/*",
+    "./.jest/setup.ts",
     "playwright-ct.config.ts", 
     "playwright/**/*",
     "e2e-testing/**/*",
