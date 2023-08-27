@@ -15,11 +15,13 @@ export function NavBar() {
         {data.map((label, index) => {
           const isActive = index === activeIndex;
           return (
-            <motion.li key={index} onClick={() => setActiveIndex(index)}>
+            <motion.li key={index}>
+              <button onClick={() => setActiveIndex(index)}>
               <style.Text>
                 {isActive && <style.Background layoutId="horizontal" />}
                 <span>{label}</span>
               </style.Text>
+              </button>
             </motion.li>
           );
         })}

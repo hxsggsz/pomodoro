@@ -12,14 +12,16 @@ export const TimerNav = () => {
   return (
     <motion.ul>
       {data.map((option, index) => (
-        <motion.li key={index} onClick={() => setActiveTimer(index)}>
+        <motion.li key={index}>
+          <button onClick={() => setActiveTimer(index)}>
           <style.TimerOption>
             {index === activeTimer && (
               <style.TimerEffect layoutId="active-index" />
-            )}
+              )}
 
             <style.Text>{option}</style.Text>
           </style.TimerOption>
+              </button>
         </motion.li>
       ))}
     </motion.ul>

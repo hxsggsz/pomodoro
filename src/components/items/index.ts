@@ -9,7 +9,6 @@ export const Wrapper = styled(motion.li)<StyleProps>`
   align-items: center;
   display: flex;
   justify-content: space-between;
-  font-size: 24px;
   background: ${({ theme, isEditable }) =>
     isEditable ? theme.LightColor : theme.BackgroundLight};
   border-radius: 10px;
@@ -46,8 +45,8 @@ export const ButtonWrapper = styled.div`
 
 export const Button = styled.button<StyleProps>`
   cursor: pointer;
-  border: none;
-  background: none;
+  outline-color: ${({ theme }) => theme.contrast};
+  outline-offset: 10px;
   color: ${({ theme, isEditable }) =>
     isEditable ? theme.contrast : theme.LightColor};
   padding: 0.2rem;

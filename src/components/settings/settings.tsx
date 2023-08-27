@@ -11,35 +11,43 @@ export const Settings = ({
 
   const options = [
     { option: t("pt"), value: "pt-BR" },
-    { option: t('en'), value: "en-US" },
+    { option: t("en"), value: "en-US" },
   ];
 
   const handleLang = (lang: string) => {
-    i18n.changeLanguage(lang)
-    localStorage.setItem('lang', lang)
-  }
+    i18n.changeLanguage(lang);
+    localStorage.setItem("lang", lang);
+  };
 
   return (
     <style.Form>
       <h2>{t("change-theme")}</h2>
 
       <style.Options>
-        <style.OptionOne
-          whileHover={{ scale: 1.2 }}
-          whileTap={{ scale: 0.9, y: [0, -4, 4, 0] }}
-          onClick={() => handleTheme("red")}
-        />
+        <li>
+          <style.OptionOne
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9, y: [0, -4, 4, 0] }}
+            onClick={() => handleTheme("red")}
+          />
+        </li>
 
-        <style.OptionTwo
-          whileHover={{ scale: 1.2 }}
-          whileTap={{ scale: 0.9, y: [0, -4, 4, 0] }}
-          onClick={() => handleTheme("grey")}
-        />
-        <style.OptionThree
-          whileHover={{ scale: 1.2 }}
-          whileTap={{ scale: 0.9, y: [0, -4, 4, 0] }}
-          onClick={() => handleTheme("purple")}
-        />
+        <li>
+          <style.OptionTwo
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9, y: [0, -4, 4, 0] }}
+            onClick={() => handleTheme("grey")}
+          />
+        </li>
+
+        <li>
+          <style.OptionThree
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9, y: [0, -4, 4, 0] }}
+            onClick={() => handleTheme("purple")}
+          />
+        </li>
+
         <style.OptionFour
           whileHover={{ scale: 1.2 }}
           whileTap={{ scale: 0.9, y: [0, -4, 4, 0] }}

@@ -45,10 +45,14 @@ export const GlobalStyle = createGlobalStyle`
   
   a {
     text-decoration: none;
+    outline-color: ${({ theme }) => theme.LightColor};
     color: ${({ theme }) => theme.LightColor};    
   }
 
   button {
-  all: unset;
+  border: none;
+  background: none;
+  outline-offset: 6px;
+  cursor: pointer;
 }
 `;

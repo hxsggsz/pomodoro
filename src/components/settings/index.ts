@@ -31,7 +31,7 @@ export const Options = styled.ul`
   gap: 1.2rem;
 `;
 
-export const OptionOne = styled(motion.li)`
+export const OptionOne = styled(motion.button)`
   cursor: pointer;
   padding: min(1rem, 4vw);
   border-radius: 50%;
@@ -39,7 +39,7 @@ export const OptionOne = styled(motion.li)`
   background: #9b1d20;
 `;
 
-export const OptionTwo = styled(motion.li)`
+export const OptionTwo = styled(motion.button)`
   padding: min(1rem, 4vw);
   cursor: pointer;
   border-radius: 50%;
@@ -47,7 +47,7 @@ export const OptionTwo = styled(motion.li)`
   background: #4c5760;
 `;
 
-export const OptionThree = styled(motion.li)`
+export const OptionThree = styled(motion.button)`
   padding: min(1rem, 4vw);
   cursor: pointer;
   border-radius: 50%;
@@ -55,7 +55,7 @@ export const OptionThree = styled(motion.li)`
   background: #2f2235;
 `;
 
-export const OptionFour = styled(motion.li)`
+export const OptionFour = styled(motion.button)`
   padding: min(1rem, 4vw);
   cursor: pointer;
   border-radius: 50%;

@@ -11,7 +11,6 @@ interface ItemsProps {
   ) => void;
 }
 
-
 export const Items = (props: ItemsProps) => {
   const [isEditable, setIsEditable] = useState(false);
 
