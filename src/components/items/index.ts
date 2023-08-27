@@ -14,7 +14,7 @@ export const Wrapper = styled(motion.li)<StyleProps>`
     isEditable ? theme.LightColor : theme.BackgroundLight};
   border-radius: 10px;
   transition: 250ms;
-  padding: 1.2rem;
+  padding: 0.8rem 0.4rem 0.8rem 1rem;
   gap: 0.8rem;
 `;
 
