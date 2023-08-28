@@ -1,7 +1,7 @@
 import * as SelectStyled from ".";
 import * as SelectRadix from "@radix-ui/react-select";
 import { CaretDown } from "phosphor-react";
-import { Dispatch, ReactNode, SetStateAction, forwardRef } from "react";
+import { ReactNode, forwardRef } from "react";
 import { useTranslation } from "react-i18next";
 
 interface SelectProps {

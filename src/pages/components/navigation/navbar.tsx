@@ -2,6 +2,7 @@ import * as style from ".";
 import { motion } from "framer-motion";
 import { useOptions } from "../../../context/optionsContext";
 import { useTranslation } from 'react-i18next';
+import { KeyboardEvent } from "react";
 
 export function NavBar() {
   const { t } = useTranslation()

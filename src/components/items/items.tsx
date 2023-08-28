@@ -15,11 +15,11 @@ export const Items = (props: ItemsProps) => {
   const [isEditable, setIsEditable] = useState(false);
 
   const editInput = useRef<HTMLInputElement | null>(null);
-  
+
   function handleFinishUpdate(ev: KeyboardEvent<HTMLInputElement>) {
-    if(ev.key === "Enter") {
-      setIsEditable(prev => !prev)
-    } 
+    if (ev.key === "Enter") {
+      setIsEditable((prev) => !prev);
+    }
   }
 
   useEffect(() => {
@@ -40,6 +40,7 @@ export const Items = (props: ItemsProps) => {
         <style.Input
           ref={editInput}
           isEditable={isEditable}
+          data-testid="input"
           spellCheck={false}
           maxLength={30}
           onKeyDown={handleFinishUpdate}
@@ -52,12 +53,14 @@ export const Items = (props: ItemsProps) => {
       <style.ButtonWrapper>
         <style.Button
           isEditable={isEditable}
+          data-testid="update-button"
           onClick={() => setIsEditable((prev) => !prev)}
         >
           <Pencil size={24} weight="bold" />
         </style.Button>
 
         <style.Button
+          data-testid="delete-button"
           isEditable={isEditable}
           onClick={() => props.deleteItem(props.item)}
         >
