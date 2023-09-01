@@ -2,7 +2,6 @@ import * as style from ".";
 import { motion } from "framer-motion";
 import { useOptions } from "../../context/optionsContext";
 import { useTranslation } from 'react-i18next';
-import { KeyboardEvent } from "react";
 
 export const TimerNav = () => {
   const { t } = useTranslation()

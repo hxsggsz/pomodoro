@@ -26,6 +26,7 @@ export const Settings = ({
       <style.Options>
         <li>
           <style.OptionOne
+            data-testid="button-theme"
             whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 0.9, y: [0, -4, 4, 0] }}
             onClick={() => handleTheme("red")}
@@ -48,11 +49,13 @@ export const Settings = ({
           />
         </li>
 
-        <style.OptionFour
-          whileHover={{ scale: 1.2 }}
-          whileTap={{ scale: 0.9, y: [0, -4, 4, 0] }}
-          onClick={() => handleTheme("black")}
-        />
+        <li>
+          <style.OptionFour
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9, y: [0, -4, 4, 0] }}
+            onClick={() => handleTheme("black")}
+          />
+        </li>
       </style.Options>
       <Select options={options} handleSelect={handleLang} />
     </style.Form>

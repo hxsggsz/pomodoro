@@ -20,7 +20,7 @@ export const Select = ({ handleSelect, options }: SelectProps) => {
       defaultValue=""
       onValueChange={(value) => handleSelect(value)}
     >
-      <SelectStyled.Trigger className="SelectTrigger" aria-label="Food">
+      <SelectStyled.Trigger data-testid="button" className="SelectTrigger" aria-label="Food">
         <SelectRadix.Value />
         <SelectRadix.Icon className="SelectIcon">
           <CaretDown size={30} weight="bold" />
