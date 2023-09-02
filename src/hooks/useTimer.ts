@@ -11,7 +11,7 @@ export const useTimer = (key: string, InitialMinutes: number) => {
   const [minutes, setMinutes] = useState(timerStorage.min)
   const [pause, setPause] = useState(true)
 
-  const alarm = new Audio('../assets/timer.mp3')
+  const alarm = new Audio('../assets/pomodoro/timer.mp3')
   const intervalRef = useRef<ReturnType<typeof setInterval>>()
 
   function handlePause() {

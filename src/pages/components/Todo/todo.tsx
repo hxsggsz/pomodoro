@@ -3,7 +3,6 @@ import { Button } from "../../../components/button/button";
 import { Items } from "../../../components/items/items";
 import { useTodo } from "../../../context/todoContext";
 import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-import { Trash } from "phosphor-react";
 import { useTranslation } from "react-i18next";
 
 export const Todo = () => {
